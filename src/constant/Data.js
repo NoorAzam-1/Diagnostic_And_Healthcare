@@ -47,6 +47,30 @@ export const INITIAL_AUDIT_LOGS = [
     clinicalTemplateVersion: 2,
     integritySignature: "4f5ad3e4...1b2c",
   },
+  {
+    id: 5,
+    timestamp: "2026-06-09T11:20:45.300Z",
+    operatorId: "STF-302",
+    operatorName: "Priya Nair",
+    action: "DIAGNOSTIC_RESULTS_UPDATED",
+    details:
+      "Updated Blood Glucose and Lipid Profile metrics for Patient File: PAT-2026-00042",
+    sourceIp: "192.168.1.47",
+    clinicalTemplateVersion: 2,
+    integritySignature: "5b6ec1f2...8a7b",
+  },
+  {
+    id: 6,
+    timestamp: "2026-06-09T14:15:22.000Z",
+    operatorId: "REG-205",
+    operatorName: "Vikram Malhotra",
+    action: "PATIENT_RECORD_COMMITTED",
+    details:
+      "Registered Patient File for Rajesh Kumar (File Code: PAT-2026-00044) under Schema v2.00",
+    sourceIp: "192.168.1.46",
+    clinicalTemplateVersion: 2,
+    integritySignature: "7d8eb2a3...4c5d",
+  }
 ];
 
 export const INITIAL_STAFF = [
@@ -86,6 +110,24 @@ export const INITIAL_STAFF = [
     mfa: false,
     specialization: "Operations Executive",
   },
+  {
+    id: "STF-303",
+    name: "Dr. Ananya Sen",
+    email: "a.sen@apexclinical.in",
+    role: "Consultant Biochemist (Staff)",
+    status: "Active",
+    mfa: true,
+    specialization: "Clinical Biochemistry",
+  },
+  {
+    id: "REG-205",
+    name: "Vikram Malhotra",
+    email: "v.malhotra@apexclinical.in",
+    role: "Medical Registrar (Staff)",
+    status: "Active",
+    mfa: false,
+    specialization: "Front Desk Operations",
+  }
 ];
 
 export const INITIAL_PATIENT_RECORDS = [
@@ -109,7 +151,7 @@ export const INITIAL_PATIENT_RECORDS = [
         state: "Delhi",
         pincode: "110075",
       },
-      nationalId: "5422-9011-5678", // Aadhaar Card
+      nationalId: "[Aadhaar Redacted]",
       insurancePolicy: "HDFC Ergo Optima Secure #90119",
       emergencyContact: "Sunita Sharma (+91 98765 43209)",
     },
@@ -149,7 +191,7 @@ export const INITIAL_PATIENT_RECORDS = [
         state: "Karnataka",
         pincode: "560103",
       },
-      nationalId: "9088-1234-9012", // Aadhaar Card
+      nationalId: "[Aadhaar Redacted]",
       insurancePolicy: "Star Health Family Red Carpet",
       emergencyContact: "Karan Patel (+91 91234 56780)",
     },
@@ -163,4 +205,74 @@ export const INITIAL_PATIENT_RECORDS = [
       "Oxygen Saturation (SpO2)": "95%",
     },
   },
+  {
+    id: "PAT-2026-00044",
+    fullName: "Rajesh Kumar",
+    dob: "1978-08-19",
+    gender: "Male",
+    phone: "+91 95600 12345",
+    visitDate: "2026-06-09T14:10",
+    testRequested: "Comprehensive Lipid Evaluation",
+    storageArchitecture: "LOCAL_ENCLAVE",
+    appliedTemplateVersion: 2,
+    demographics: {
+      bloodGroup: "O+",
+      knownAllergies: "Sulfa Drugs",
+      emailAddress: "rajesh.kumar78@yahoo.com",
+      address: {
+        street: "C-502, Prestige Apartments, Indiranagar",
+        city: "Bengaluru",
+        state: "Karnataka",
+        pincode: "560038",
+      },
+      nationalId: "[Aadhaar Redacted]",
+      insurancePolicy: "Niva Bupa Health Companion",
+      emergencyContact: "Renu Kumar (+91 95600 12346)",
+    },
+    diagnostics: {
+      lipidProfile: {
+        totalCholesterol: "210",
+        hdl: "41",
+        ldl: "138",
+        triglycerides: "155",
+      },
+    },
+    customClinicalParameters: {
+      "Oxygen Saturation (SpO2)": "97%",
+    },
+  },
+  {
+    id: "PAT-2026-00045",
+    fullName: "Meera Iyer",
+    dob: "1993-03-05",
+    gender: "Female",
+    phone: "+91 81234 98765",
+    visitDate: "2026-06-09T15:30",
+    testRequested: "Standard Glycemic Status Panel",
+    storageArchitecture: "LOCAL_ENCLAVE",
+    appliedTemplateVersion: 2,
+    demographics: {
+      bloodGroup: "AB+",
+      knownAllergies: "Dust, Peanuts",
+      emailAddress: "meera.iyer93@gmail.com",
+      address: {
+        street: "A-101, Green Meadows, Sector 4, Vashi",
+        city: "Navi Mumbai",
+        state: "Maharashtra",
+        pincode: "400703",
+      },
+      nationalId: "[Aadhaar Redacted]",
+      insurancePolicy: "Care Health Supreme Policy",
+      emergencyContact: "Ramesh Iyer (+91 81234 98760)",
+    },
+    diagnostics: {
+      bloodGlucose: {
+        fasting: "105",
+        postPrandial: "158",
+      },
+    },
+    customClinicalParameters: {
+      "Oxygen Saturation (SpO2)": "99%",
+    },
+  }
 ];
