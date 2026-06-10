@@ -4,7 +4,6 @@ export function AuditLedger({
   isDarkMode,
   clinicalTemplateVer,
   auditLedger,
-  setAuditLedger,
   triggerAlert
 }) {
   return (
