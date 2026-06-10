@@ -12,17 +12,17 @@ import {
   Moon,
   Sun,
 } from "lucide-react";
-import { LandingPage } from "./LandingPage";
-import { DashboardOverview } from "./DashboardOverview";
-import { PatientIntakeForm } from "./PatientIntakeForm";
-import { PatientRecords } from "./PatientRecords";
-import { ProtocolConfig } from "./ProtocolConfig";
+import { LandingPage } from "./home/LandingPage";
+import { DashboardOverview } from "./dashboard/DashboardOverview";
+import { PatientIntakeForm } from "./patientsForm/PatientIntakeForm";
+import { PatientRecords } from "./patients/PatientRecords";
+import { ProtocolConfig } from "./acess/ProtocolConfig";
 import { StaffDirectory } from "./staff/StaffDirectory";
-import { AuditLedger } from "./AuditLedger";
+import { AuditLedger } from "./logs/AuditLedger";
 import { INITIAL_AUDIT_LOGS } from "@/constant/Data";
 import { INITIAL_STAFF } from "@/constant/Data";
 import { INITIAL_PATIENT_RECORDS } from "@/constant/Data";
-import Footer from "./Footer";
+import Footer from "./common/Footer";
 
 export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
