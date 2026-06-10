@@ -1,6 +1,6 @@
 "use client";
 import { useApp } from "@/context/AppContext";
-import { ProtocolConfig } from "@/components/ProtocolConfig";
+import { ProtocolConfig } from "@/components/acess/ProtocolConfig";
 
 export default function Protocols() {
   const { 
