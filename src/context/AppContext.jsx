@@ -11,9 +11,9 @@ const AppContext = createContext();
 export function AppProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   const [clinicName] = useState("Apex Diagnostic & Wellness Center");
-  const [licenseCode] = useState("IND-KA-9921");
-
-  // --- SYSTEM STATE ---
+  const [licenseCode] = useState("IND-KA-9921");  
+  const [loginEmail, setLoginEmail] = useState("noor.azam@apexclinical.in");
+  const [loginPassword, setLoginPassword] = useState("••••••••");
   const [networkSyncStatus, setNetworkSyncStatus] = useState("online");
   const [clinicalTemplateVer, setClinicalTemplateVer] = useState(2);
   const [storageStrategy, setStorageStrategy] = useState("LOCAL_ENCLAVE");
@@ -21,7 +21,6 @@ export function AppProvider({ children }) {
   const [dataMigrationProgress, setDataMigrationProgress] = useState(0);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // --- CONFIGURATION STATE ---
   const [demographicFieldSettings, setDemographicFieldSettings] = useState({
     emailAddress: true,
     address: true,
@@ -52,14 +51,12 @@ export function AppProvider({ children }) {
     },
   ]);
 
-  // --- DATA STORE ---
   const [patients, setPatients] = useState(INITIAL_PATIENT_RECORDS);
   const [auditLedger, setAuditLedger] = useState(INITIAL_AUDIT_LOGS);
   const [staffDirectory, setStaffDirectory] = useState(INITIAL_STAFF);
   const [inspectedPatientId, setInspectedPatientId] =
     useState("PAT-2026-00042");
 
-  // --- FORMS STATE ---
   const [patientIntakeForm, setPatientIntakeForm] = useState({
     fullName: "",
     dob: "",
@@ -84,14 +81,12 @@ export function AppProvider({ children }) {
     specialization: "",
   });
 
-  // --- ALERTS ---
   const [alertMessage, setAlertMessage] = useState(null);
   const triggerAlert = (message, type = "success") => {
     setAlertMessage({ message, type });
     setTimeout(() => setAlertMessage(null), 4000);
   };
 
-  // --- HELPER FUNCTIONS (Copy exact logic from your original App.js here) ---
   const addLedgerEntry = (action, details, forcedOperator = null) => {
     const timestamp = new Date().toISOString();
     const previousChainSignature =
@@ -378,6 +373,10 @@ export function AppProvider({ children }) {
   return (
     <AppContext.Provider
       value={{
+        loginEmail,
+        setLoginEmail,
+        loginPassword,
+        setLoginPassword,
         currentUser,
         setCurrentUser,
         clinicName,
