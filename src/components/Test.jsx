@@ -17,7 +17,7 @@ import { DashboardOverview } from "./DashboardOverview";
 import { PatientIntakeForm } from "./PatientIntakeForm";
 import { PatientRecords } from "./PatientRecords";
 import { ProtocolConfig } from "./ProtocolConfig";
-import { StaffDirectory } from "./StaffDirectory";
+import { StaffDirectory } from "./staff/StaffDirectory";
 import { AuditLedger } from "./AuditLedger";
 import { INITIAL_AUDIT_LOGS } from "@/constant/Data";
 import { INITIAL_STAFF } from "@/constant/Data";
