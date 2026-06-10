@@ -1,5 +1,5 @@
 "use client";
-import { AuditLedger } from "@/components/AuditLedger";
+import { AuditLedger } from "@/components/logs/AuditLedger";
 import { useApp } from "@/context/AppContext";
 
 export default function page() {
