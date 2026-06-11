@@ -14,7 +14,7 @@ export default function Home() {
 
       <Header />
 
-      <section className="relative z-10 py-12 lg:py-20 px-6 max-w-7xl mx-auto">
+      <section className="relative z-10 mt-10 py-12 lg:py-20 px-6 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           <div className="lg:col-span-7 space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 font-medium text-xs tracking-wide backdrop-blur-sm">
