@@ -19,7 +19,7 @@ export function AppProvider({ children }) {
   const [storageStrategy, setStorageStrategy] = useState("LOCAL_ENCLAVE");
   const [isMigratingData, setIsMigratingData] = useState(false);
   const [dataMigrationProgress, setDataMigrationProgress] = useState(0);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   const [demographicFieldSettings, setDemographicFieldSettings] = useState({
     emailAddress: true,
