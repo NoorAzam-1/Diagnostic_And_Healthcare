@@ -3,12 +3,13 @@ import { ShieldCheck, Heart } from "lucide-react";
 export default function LandingFooter() {
   return (
     <footer className="border-t border-slate-800 bg-slate-950 text-slate-200">
+
       <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="space-y-2 text-center md:text-left">
           <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-2">
             <p className="font-bold text-white text-sm tracking-tight">
-              ApexClinical{" "}
-              <span className="text-indigo-400 font-normal">
+              HERAI ONE 
+              <span className="text-indigo-400 font-normal ml-1">
                 Software Suite
               </span>
             </p>
@@ -34,13 +35,14 @@ export default function LandingFooter() {
           </div>
 
           <div className="flex items-center gap-1 text-slate-500 text-[11px]">
-            <span>&copy; {new Date().getFullYear()} ApexClinical.</span>
+            <span>&copy; {new Date().getFullYear()} HERAI ONE.</span>
             <span>• Made with</span>
             <Heart size={10} className="text-rose-500 fill-rose-500" />
             <span>in India</span>
           </div>
         </div>
       </div>
+      
     </footer>
   );
 }
