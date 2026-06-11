@@ -12,7 +12,7 @@ export const Header = () => {
 
           <div>
             <span className="font-extrabold text-white text-lg tracking-tight">
-              ApexClinical
+              HERAI ONE
             </span>
 
             <span className="text-[10px] text-slate-500 block -mt-1 font-semibold uppercase tracking-wider">
