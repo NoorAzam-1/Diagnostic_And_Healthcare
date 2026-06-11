@@ -36,7 +36,7 @@ export default function DashboardHeader() {
         <div className="flex items-center gap-3">
           <button
             onClick={() => setIsDarkMode(!isDarkMode)}
-            className="p-2.5 border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 transition-all"
+            className="p-2.5 border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-xl cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-700 transition-all"
             aria-label="Toggle Theme"
           >
             {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
@@ -44,7 +44,7 @@ export default function DashboardHeader() {
 
           <button
             onClick={handleLogout}
-            className="bg-rose-50 text-rose-600 hover:bg-rose-100 border border-rose-100 dark:bg-rose-500/10 dark:text-rose-400 dark:border-rose-500/20 dark:hover:bg-rose-500/20 px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all shadow-sm"
+            className="bg-rose-50 text-rose-600 hover:bg-rose-100 border border-rose-100 dark:bg-rose-500/10 dark:text-rose-400 dark:border-rose-500/20 dark:hover:bg-rose-500/20 px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all shadow-sm cursor-pointer"
           >
             <LogOut size={14} /> <span>Logout</span>
           </button>
