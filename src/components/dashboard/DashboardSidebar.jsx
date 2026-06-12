@@ -17,7 +17,7 @@ export default function DashboardSidebar() {
   const isAdmin = currentUser?.role?.includes("Admin");
 
   return (
-    <aside className="w-64 shrink-0 flex flex-col space-y-6">
+    <aside className="w-64 shrink-0 flex flex-col space-y-6 h-[calc(100vh-99px)]">
       <div className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm transition-colors">
         <div className="flex items-center gap-2.5">
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 relative">
