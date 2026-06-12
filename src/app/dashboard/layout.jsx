@@ -8,11 +8,11 @@ export default function DashboardLayout({ children }) {
   const { isDarkMode } = useApp();
 
   return (
-    <div className={isDarkMode ? "dark" : ""}>
+    <div className={`${isDarkMode ? "dark" : ""}`}>
       <div className="h-screen font-sans antialiased flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 overflow-hidden px-4">
         <DashboardHeader />
 
-        <div className="flex-1 flex overflow-hidden w-full mx-auto gap-2">
+        <div className="flex-1 flex overflow-hidden w-full mx-auto gap-2 max-w-7xl">
           <div className="hidden md:block w-64 shrink-0 py-4 overflow-y-auto h-full ">
             <DashboardSidebar />
           </div>
