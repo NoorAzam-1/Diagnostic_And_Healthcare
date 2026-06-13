@@ -3,6 +3,7 @@ import HeroSection from "./HeroSection";
 import LandingFooter from "@/components/common/LandingFooter";
 import TrustedBySection from "./TrustedBySection";
 import ProductOverviewSection from "./ProductOverviewSection";
+import HowItWorksSection from "./HowItsWorkSection";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <HeroSection />
       <TrustedBySection />
       <ProductOverviewSection />
+      <HowItWorksSection />
       <LandingFooter />
     </div>
   );
