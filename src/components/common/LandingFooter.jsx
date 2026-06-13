@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { Activity, ShieldCheck, Heart, Database } from "lucide-react";
 
@@ -10,7 +8,7 @@ export default function LandingFooter() {
         <div className="grid lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 text-white">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-linear-to-br from-indigo-600 to-violet-600 text-white">
                 <Activity size={22} />
               </div>
 
