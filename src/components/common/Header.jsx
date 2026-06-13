@@ -1,36 +1,125 @@
-import { Activity, ChevronRight } from "lucide-react";
+"use client";
+
 import Link from "next/link";
+import { Activity, ChevronRight, CalendarDays } from "lucide-react";
+
+const navLinks = [
+  {
+    name: "Features",
+    href: "#features",
+  },
+  {
+    name: "Workflow",
+    href: "#workflow",
+  },
+  {
+    name: "Security",
+    href: "#security",
+  },
+  {
+    name: "Platforms",
+    href: "#platforms",
+  },
+  {
+    name: "Pricing",
+    href: "#pricing",
+  },
+];
 
 export const Header = () => {
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 border-b border-slate-800 bg-slate-950/80 backdrop-blur-xl">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <Link href="/" className="flex items-center space-x-3">
-          <div className="p-2 bg-linear-to-br from-indigo-600 to-violet-600 rounded-xl text-white shadow-lg shadow-indigo-900/30">
-            <Activity size={24} />
-          </div>
-
-          <div>
-            <span className="font-extrabold text-white text-lg tracking-tight">
-              HERAI ONE
-            </span>
-
-            <span className="text-[10px] text-slate-500 block -mt-1 font-semibold uppercase tracking-wider">
-              Multi-Tenant Diagnostic Suite
-            </span>
-          </div>
-        </Link>
-
-        <div className="flex items-center space-x-4">
+    <header className="fixed top-0 left-0 z-50 w-full border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-xl">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="h-20 flex items-center justify-between">
           <Link
-            href="#login-anchor"
-            className="bg-linear-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white px-4 py-2.5 rounded-xl transition-all duration-300 shadow-lg shadow-indigo-900/30 font-semibold tracking-wide flex items-center space-x-1 text-xs"
+            href="/"
+            className="flex items-center gap-3 shrink-0"
           >
-            <span>Sign In to Workstation</span>
-            <ChevronRight size={14} />
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 text-white shadow-lg shadow-indigo-900/30">
+              <Activity size={22} />
+            </div>
+
+            <div>
+              <h1 className="font-black text-white text-lg leading-none">
+                HERAI ONE
+              </h1>
+
+              <p className="text-[10px] uppercase tracking-[0.18em] text-slate-500 font-semibold mt-1">
+                Healthcare SaaS Platform
+              </p>
+            </div>
           </Link>
+
+          <nav className="hidden lg:flex items-center gap-8">
+            {navLinks.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="
+                  text-sm
+                  font-medium
+                  text-slate-400
+                  hover:text-white
+                  transition-colors
+                "
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <Link
+              href="#demo"
+              className="
+                hidden md:flex
+                items-center
+                gap-2
+                px-4
+                py-2.5
+                rounded-xl
+                border
+                border-slate-800
+                bg-slate-900/70
+                text-slate-300
+                hover:text-white
+                hover:border-slate-700
+                transition-all
+              "
+            >
+              <CalendarDays size={16} />
+              <span className="text-sm font-medium">
+                Book Demo
+              </span>
+            </Link>
+
+            <Link
+              href="#login-anchor"
+              className="
+                flex
+                items-center
+                gap-2
+                rounded-xl
+                bg-gradient-to-r
+                from-indigo-600
+                to-violet-600
+                px-5
+                py-2.5
+                text-white
+                font-semibold
+                text-sm
+                shadow-lg
+                shadow-indigo-900/30
+                hover:scale-[1.02]
+                transition-all
+              "
+            >
+              Sign In
+              <ChevronRight size={16} />
+            </Link>
+          </div>
         </div>
       </div>
-    </nav>
+    </header>
   );
 };
