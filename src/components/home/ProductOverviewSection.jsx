@@ -92,7 +92,10 @@ export default function ProductOverviewSection() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <h2 className="flex gap-3 justify-center mt-6 text-4xl md:text-5xl font-black text-white">
+          <span className="inline-flex items-center px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold tracking-wider uppercase">
+            Product Capabilities
+          </span>
+          <h2 className="mt-6 text-4xl md:text-5xl font-black text-white">
             Everything Your Healthcare
             <span className="block bg-linear-to-r from-indigo-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent">
               Organization Needs
@@ -125,7 +128,8 @@ export default function ProductOverviewSection() {
                   backdrop-blur-xl p-7 hover:border-indigo-500/30 transition-all"
               >
                 <div className="relative z-10">
-                  <div className={`w-14 h-14 rounded-2xl bg-linear-to-br ${feature.color} flex items-center
+                  <div
+                    className={`w-14 h-14 rounded-2xl bg-linear-to-br ${feature.color} flex items-center
                       justify-center shadow-xl mb-5 `}
                   >
                     <Icon size={24} className="text-white" />
