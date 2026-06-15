@@ -59,7 +59,7 @@ const highlights = [
 
 export default function HowItWorksSection() {
   return (
-    <section className="relative overflow-hidden py-10 px-6 lg:px-16">
+    <section id="workflow" className="relative overflow-hidden py-24 px-6 lg:px-16">
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-violet-600/20 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto">
