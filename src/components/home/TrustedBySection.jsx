@@ -69,18 +69,6 @@ export default function TrustedBySection() {
   return (
     <section className="relative overflow-hidden px-16 py-8">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/20 blur-[140px] rounded-full pointer-events-none" />
-      <motion.div
-        animate={{ x: [0, 40, 0], y: [0, -30, 0] }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute left-0 top-20 h-[450px] w-[450px] rounded-full bg-indigo-600/10 blur-[180px]
-          pointer-events-none"
-      />
-
-      <motion.div
-        animate={{ x: [0, -50, 0], y: [0, 30, 0] }}
-        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute right-0 bottom-0 h-[450px] w-[450px] rounded-full bg-cyan-600/10 blur-[180px] pointer-events-none "
-      />
 
       <div className="relative z-10 max-w-7xl mx-auto">
         <motion.div
@@ -90,7 +78,13 @@ export default function TrustedBySection() {
           transition={{ duration: 0.7 }}
           className="text-center"
         >
-          <h2 className="flex justify-center gap-4 mt-6 text-4xl md:text-5xl font-black text-white">
+          <span
+            className="inline-flex items-center gap-2 rounded-full border border-indigo-500/20
+            bg-indigo-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-indigo-40"
+          >
+            Trusted Infrastructure
+          </span>
+          <h2 className="mt-6 text-4xl md:text-5xl font-black text-white">
             Trusted by Modern
             <span
               className="block bg-linear-to-r from-indigo-400 via-violet-400 to-cyan-400 bg-clip-text
