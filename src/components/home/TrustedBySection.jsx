@@ -67,7 +67,7 @@ const trustItems = [
 
 export default function TrustedBySection() {
   return (
-    <section className="relative overflow-hidden px-16 py-14">
+    <section className="relative overflow-hidden px-16 py-8">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/20 blur-[140px] rounded-full pointer-events-none" />
       <motion.div
         animate={{ x: [0, 40, 0], y: [0, -30, 0] }}
