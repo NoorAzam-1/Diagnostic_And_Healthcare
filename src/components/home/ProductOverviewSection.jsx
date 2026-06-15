@@ -81,7 +81,7 @@ const item = {
 
 export default function ProductOverviewSection() {
   return (
-    <section className="relative overflow-hidden py-14">
+    <section id="features" className="relative overflow-hidden py-18">
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-indigo-600/20 blur-[140px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10 md:px-6">
