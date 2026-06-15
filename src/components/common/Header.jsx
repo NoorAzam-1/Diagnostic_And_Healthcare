@@ -59,7 +59,7 @@ export const Header = () => {
 
           <div className="flex items-center gap-3">
             <Link
-              href="#demo"
+              href="/demo"
               className="hidden md:flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-800
                 bg-slate-900/70 text-slate-300 hover:text-white hover:border-slate-700 transition-all"
             >
