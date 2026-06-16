@@ -88,7 +88,7 @@ export default function RoleAccessSection() {
           </p>
         </motion.div>
 
-        <div className="mt-12 grid md:grid-cols-2 gap-5">
+        <div className="mt-10 grid md:grid-cols-2 gap-5">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
