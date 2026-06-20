@@ -19,10 +19,10 @@ const features = [
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden pt-24 pb-6 md:pt-24 lg:pt-28">
+    <section className="relative container-custom overflow-hidden pt-24 pb-6 md:pt-24 lg:pt-28">
       <div className="absolute top-0 left-0 h-[500px] w-[500px] rounded-full bg-red-100 blur-[160px]" />
 
-      <div className="container-custom relative z-10">
+      <div className=" relative z-10">
         <div className="grid lg:grid-cols-12 gap-16 lg:items-start">
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 rounded-full border border-red-200 bg-red-50 px-4 py-2 text-xs font-semibold tracking-wider text-red-700 uppercase">
