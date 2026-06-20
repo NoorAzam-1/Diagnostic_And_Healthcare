@@ -115,7 +115,7 @@ export default function TrustedBySection() {
             </span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-body">
+          <p className="mx-auto mt-5 max-w-6xl text-lg leading-relaxed text-body">
             Enterprise-grade platform trusted by hospitals, diagnostic
             laboratories and healthcare providers requiring security,
             compliance and scalability.
