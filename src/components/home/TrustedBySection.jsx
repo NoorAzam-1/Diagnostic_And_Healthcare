@@ -6,8 +6,10 @@ import {
   Database,
   ShieldCheck,
   CheckCircle2,
+  Lock,
+  Server,
+  Network,
 } from "lucide-react";
-
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
 
@@ -45,32 +47,56 @@ const stats = [
 
 const featurePills = [
   "Multi-Tenant Architecture",
-  "Dynamic Patient Forms",
   "Role-Based Access",
   "Audit Logging",
+  "AES-256 Encryption",
   "Cloud Storage",
   "Local Storage",
-  "AES-256 Encryption",
   "Cross Platform",
   "Real-Time Analytics",
   "Multi-Branch Sync",
+  "Dynamic Patient Forms",
 ];
 
 const trustItems = [
-  "Hospitals",
   "Diagnostic Labs",
+  "Hospitals",
   "Healthcare Networks",
-  "Multi Branch Centers",
+  "Pathology Centers",
   "Medical Clinics",
-  "Diagnostic Chains",
+  "Multi Branch Labs",
+];
+
+const trustFeatures = [
+  {
+    icon: ShieldCheck,
+    label: "ABDM Compliant",
+  },
+  {
+    icon: Lock,
+    label: "AES-256 Encryption",
+  },
+  {
+    icon: Users,
+    label: "Role Based Access",
+  },
+  {
+    icon: Server,
+    label: "99.9% Uptime",
+  },
+  {
+    icon: Network,
+    label: "Tenant Isolation",
+  },
 ];
 
 export default function TrustedBySection() {
   return (
-    <section className="relative overflow-hidden px-16 py-8">
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/20 blur-[140px] rounded-full pointer-events-none" />
+    <section className="relative overflow-hidden py-6 md:py-8 lg:py-12">
+      <div className="absolute top-20 left-20 h-[400px] w-[400px] rounded-full bg-red-100 blur-[140px]" />
+      <div className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-sky-100 blur-[140px]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -78,110 +104,114 @@ export default function TrustedBySection() {
           transition={{ duration: 0.7 }}
           className="text-center"
         >
-          <span
-            className="inline-flex items-center gap-2 rounded-full border border-indigo-500/20
-            bg-indigo-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-indigo-40"
-          >
-            Trusted Infrastructure
+          <span className="inline-flex items-center gap-2 rounded-full border border-red-200 bg-red-50 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-red-700">
+            Trusted Healthcare Infrastructure
           </span>
-          <h2 className="mt-6 text-4xl md:text-5xl font-black text-white">
-            Trusted by Modern
-            <span
-              className="block bg-linear-to-r from-indigo-400 via-violet-400 to-cyan-400 bg-clip-text
-              text-transparent "
-            >
-              Healthcare Providers
+
+          <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-black text-heading">
+            Built For Modern
+            <span className="block md:py-2.5 bg-linear-to-r from-red-600 via-red-500 to-black bg-clip-text text-transparent">
+              Healthcare Organizations
             </span>
           </h2>
 
-          <p className="mt-5 max-w-4xl mx-auto text-slate-400 text-lg leading-relaxed">
-            Designed for hospitals, diagnostic laboratories and healthcare
-            organizations that require enterprise-grade security,
-            configurability and scalability.
+          <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-body">
+            Enterprise-grade platform trusted by hospitals, diagnostic
+            laboratories and healthcare providers requiring security,
+            compliance and scalability.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-5 md:mt-10">
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
+          {trustFeatures.map((item) => {
+            const Icon = item.icon;
+
+            return (
+              <div
+                key={item.label}
+                className="flex items-center gap-2 rounded-full border border-border bg-white px-4 py-2 text-sm font-medium text-body shadow-sm"
+              >
+                <Icon size={15} className="text-red-600" />
+                {item.label}
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="mt-14 grid grid-cols-2 gap-5 xl:grid-cols-4">
           {stats.map((item, index) => {
             const Icon = item.icon;
 
             return (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
+                key={item.label}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.03 }}
-                className="group relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/60
-                  backdrop-blur-xl p-6 transition-all duration-300 hover:border-indigo-500/40"
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                }}
+                whileHover={{
+                  y: -6,
+                }}
+                className="group rounded-[28px] border border-border bg-white p-6 shadow-sm transition-all duration-300 hover:border-red-200 hover:shadow-xl"
               >
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity
-                    duration-500 bg-linear-to-br from-indigo-500/5 via-violet-500/5 to-cyan-500/5"
-                />
-
-                <div className="relative z-10">
-                  <motion.div
-                    animate={{
-                      rotate: [0, 10, -10, 0],
-                    }}
-                    transition={{
-                      duration: 5,
-                      repeat: Infinity,
-                    }}
-                    className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500/10 "
-                  >
-                    <Icon size={22} className="text-indigo-400" />
-                  </motion.div>
-
-                  <h3 className="text-3xl font-black text-white">
-                    <CountUp
-                      end={item.value}
-                      duration={3}
-                      decimals={item.decimals || 0}
-                    />
-                    {item.suffix}
-                  </h3>
-
-                  <p className="mt-2 text-white font-semibold">{item.label}</p>
-                  <p className="mt-1 text-sm text-slate-400">
-                    {item.description}
-                  </p>
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-red-50">
+                  <Icon size={22} className="text-red-600" />
                 </div>
+
+                <h3 className="text-3xl font-black text-heading">
+                  <CountUp
+                    end={item.value}
+                    duration={3}
+                    decimals={item.decimals || 0}
+                  />
+                  {item.suffix}
+                </h3>
+
+                <p className="mt-2 font-semibold text-heading">
+                  {item.label}
+                </p>
+
+                <p className="mt-1 text-sm text-body">
+                  {item.description}
+                </p>
               </motion.div>
             );
           })}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="my-5 md:my-10 flex flex-wrap justify-center gap-3"
-        >
+        <div className="mt-12 flex flex-wrap justify-center gap-3">
           {featurePills.map((item) => (
             <motion.div
               key={item}
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/70 px-4 py-2
-                text-sm text-slate-300 backdrop-blur-xl"
+              whileHover={{ scale: 1.04 }}
+              className="flex items-center gap-2 rounded-full border border-border bg-white px-4 py-2 text-sm font-medium text-body shadow-sm"
             >
-              <CheckCircle2 size={14} className="text-emerald-400" />
+              <CheckCircle2 size={14} className="text-green-600" />
               {item}
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
-        <div className="my-10 overflow-hidden">
+        <div className="mt-14 overflow-hidden">
           <motion.div
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+            animate={{
+              x: ["0%", "-50%"],
+            }}
+            transition={{
+              duration: 18,
+              repeat: Infinity,
+              ease: "linear",
+            }}
             className="flex gap-16 whitespace-nowrap"
           >
             {[...trustItems, ...trustItems].map((item, index) => (
-              <div key={index} className="text-xl font-bold text-slate-600">
+              <div
+                key={index}
+                className="text-lg md:text-xl font-bold uppercase tracking-wide text-heading/60"
+              >
                 {item}
               </div>
             ))}
