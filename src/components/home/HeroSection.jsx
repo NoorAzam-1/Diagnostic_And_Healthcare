@@ -30,7 +30,7 @@ export default function HeroSection() {
               Healthcare ERP Platform
             </div>
 
-            <h1 className="mt-4 max-w-6xl text-4xl sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl font-black tracking-tight text-heading leading-[1.05]">
+            <h1 className="mt-4 max-w-6xl text-4xl sm:text-5xl md:text-6xl  font-black tracking-tight text-heading leading-[1.05]">
               <span className="block">Healthcare Operating System</span>
 
               <span className="block py-1 md:py-2 bg-linear-to-r from-red-600 via-red-500 to-black bg-clip-text text-transparent">
