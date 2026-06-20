@@ -1,4 +1,29 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #e60012; /* Medical Red */
+  --color-primary-hover: #c40010; /* Dark Medical Red */
 
-@variant dark (&:where(.dark, .dark *));
+  --color-success: #16a34a; /* Medical Green */
+  --color-info: #0284c7; /* Healthcare Blue */
+
+  --color-background: #ffffff; /* Website Background */
+  --color-surface: #fafafa; /* Cards */
+  --color-surface-hover: #f5f5f5; /* Card Hover */
+
+  --color-heading: #111111; /* Rich Black */
+  --color-body: #4b5563; /* Paragraph */
+  --color-muted: #9ca3af; /* Meta Text */
+
+  --color-border: #e5e7eb; /* Soft Border */
+  --color-border-hover: #d1d5db; /* Hover Border */
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.08);
+  --shadow-red: 0 12px 32px rgba(230, 0, 18, 0.18);
+}
+
+.container-custom {
+  @apply w-full mx-auto px-4 md:px-8 lg:px-16;
+}
