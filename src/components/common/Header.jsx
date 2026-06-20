@@ -56,7 +56,7 @@ export const Header = () => {
             </div>
           </Link>
 
-          <nav className="hidden xl:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center xl:gap-8 lg:gap-4">
             {navLinks.map((item) => (
               <Link
                 key={item.name}
@@ -68,7 +68,7 @@ export const Header = () => {
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             <Link
               href="/demo"
               className="flex items-center gap-2 rounded-2xl border border-border bg-white px-4 py-2.5 text-sm font-medium text-heading shadow-sm transition-all hover:border-red-200 hover:bg-red-50"
@@ -88,7 +88,7 @@ export const Header = () => {
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-white xl:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-white lg:hidden"
           >
             {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
