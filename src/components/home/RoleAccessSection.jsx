@@ -102,7 +102,7 @@ export default function RoleAccessSection() {
             </span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-body">
+          <p className="mx-auto mt-5 max-w-6xl text-lg leading-relaxed text-body">
             Control access across patient records, diagnostics, reporting,
             security and organization settings through a powerful role-based
             permission system.
