@@ -40,11 +40,11 @@ export default function DynamicLabConfigurationSection() {
   return (
     <section
       id="lab-configuration"
-      className="relative overflow-hidden py-6 md:py-8 lg:py-12"
+      className="relative container-custom overflow-hidden py-6 md:py-8 lg:py-12"
     >
       <div className="absolute top-20 left-20 h-[450px] w-[450px] rounded-full bg-red-100 blur-[140px]" />
 
-      <div className="container-custom relative z-10">
+      <div className="relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
