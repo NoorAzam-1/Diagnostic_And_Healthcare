@@ -92,11 +92,11 @@ const trustFeatures = [
 
 export default function TrustedBySection() {
   return (
-    <section className="relative overflow-hidden py-6 md:py-8 lg:py-12">
+    <section className="relative container-custom overflow-hidden py-6 md:py-8 lg:py-12">
       <div className="absolute top-20 left-20 h-[400px] w-[400px] rounded-full bg-red-100 blur-[140px]" />
       <div className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-sky-100 blur-[140px]" />
 
-      <div className="container-custom relative z-10">
+      <div className=" relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}

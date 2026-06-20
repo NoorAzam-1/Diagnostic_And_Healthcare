@@ -30,7 +30,7 @@ export const LoginPage = () => {
   };
 
   return (
-    <div id="login-anchor" className="p-1 md:p-8">
+    <div id="login-anchor" className="p-1 md:p-8 lg:p-2">
       <div className="text-center">
         <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-red-50 border border-red-100">
           <LockKeyhole size={28} className="text-red-600" />
@@ -128,17 +128,12 @@ export const LoginPage = () => {
 
         <button
           type="submit"
-          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-red-600 px-5 py-3.5 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-700 shadow-[0_12px_32px_rgba(230,0,18,0.18)] cursor-pointer"
+          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-red-600 px-5 py-3.5 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-700 shadow-[0_12px_32px_rgba(230,0,18,0.18)] cursor-pointer mb-5"
         >
           <span>Authenticate Operator</span>
           <ArrowRight size={16} />
         </button>
       </form>
-
-      <div className="mt-5 flex items-center justify-center gap-2 text-xs text-muted">
-        <span className="h-2 w-2 rounded-full bg-green-500" />
-        Role-based access control enabled
-      </div>
     </div>
   );
 };
