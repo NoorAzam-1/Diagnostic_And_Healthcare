@@ -136,8 +136,8 @@ export default function HowItWorksSection() {
                       }}
                       className="relative"
                     >
-                      <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-3xl border border-border bg-white shadow-sm">
-                        <Icon size={28} className="text-red-600" />
+                      <div className="group mx-auto flex h-20 w-20 items-center justify-center rounded-3xl border border-border bg-white shadow-sm">
+                        <Icon size={28} className="text-red-600 group-hover:scale-120 duration-300" />
                       </div>
 
                       <div className="mt-6 text-center">
@@ -205,49 +205,26 @@ export default function HowItWorksSection() {
         </div>
 
         <div className="mt-16 grid gap-5 md:grid-cols-4">
-          <div className="rounded-4xl border border-border bg-surface p-6 text-center">
+          <div className="rounded-4xl border border-border bg-surface p-6 text-center hover:shadow-xl">
             <h3 className="text-3xl font-black text-heading">15 Min</h3>
             <p className="mt-2 text-body">Average Setup Time</p>
           </div>
 
-          <div className="rounded-4xl border border-border bg-surface p-6 text-center">
+          <div className="rounded-4xl border border-border bg-surface p-6 text-center hover:shadow-xl">
             <h3 className="text-3xl font-black text-heading">100%</h3>
             <p className="mt-2 text-body">Tenant Isolation</p>
           </div>
 
-          <div className="rounded-4xl border border-border bg-surface p-6 text-center">
+          <div className="rounded-4xl border border-border bg-surface p-6 text-center hover:shadow-xl">
             <h3 className="text-3xl font-black text-heading">99.9%</h3>
             <p className="mt-2 text-body">Platform Availability</p>
           </div>
 
-          <div className="rounded-4xl border border-border bg-surface p-6 text-center">
+          <div className="rounded-4xl border border-border bg-surface p-6 text-center hover:shadow-xl">
             <h3 className="text-3xl font-black text-heading">24/7</h3>
             <p className="mt-2 text-body">Monitoring</p>
           </div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-10 rounded-4xl border border-green-200 bg-green-50 p-6"
-        >
-          <div className="flex items-start gap-4">
-            <Database size={24} className="text-green-600 shrink-0" />
-
-            <div>
-              <h3 className="font-bold text-green-700">
-                Smart Storage Routing
-              </h3>
-
-              <p className="mt-2 text-green-700/80">
-                Automatically routes healthcare records to Local SQLite or
-                Cloud PostgreSQL based on organization settings, ensuring
-                maximum flexibility and compliance.
-              </p>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
