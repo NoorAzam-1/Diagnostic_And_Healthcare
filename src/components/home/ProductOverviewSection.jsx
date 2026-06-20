@@ -89,7 +89,7 @@ export default function ProductOverviewSection() {
             </span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-body">
+          <p className="mx-auto mt-5 max-w-6xl text-lg leading-relaxed text-body">
             HERAI ONE centralizes patient management, diagnostics,
             administration, reporting, compliance and security into one
             unified healthcare platform.

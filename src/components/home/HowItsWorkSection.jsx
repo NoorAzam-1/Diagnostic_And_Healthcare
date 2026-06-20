@@ -92,7 +92,7 @@ export default function HowItWorksSection() {
             </span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-body">
+          <p className="mx-auto mt-5 max-w-6xl text-lg leading-relaxed text-body">
             From organization onboarding to diagnostics and reporting,
             HERAI ONE centralizes every healthcare workflow into a single,
             secure and scalable platform.
