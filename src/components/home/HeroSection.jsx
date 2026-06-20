@@ -40,7 +40,7 @@ export default function HeroSection() {
               <span className="block">& Hospitals</span>
             </h1>
 
-            <p className="mt-6 max-w-2xl text-lg md:text-xl leading-relaxed text-body">
+            <p className="mt-6 max-w-6xl text-lg md:text-xl leading-relaxed text-body">
               Manage patient records, laboratory workflows, staff operations,
               reports, audit logs and healthcare data through one secure,
               scalable and ABDM-ready platform.

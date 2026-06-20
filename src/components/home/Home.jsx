@@ -6,6 +6,7 @@ import ProductOverviewSection from "./ProductOverviewSection";
 import HowItWorksSection from "./HowItsWorkSection";
 import RoleAccessSection from "./RoleAccessSection";
 import DynamicLabConfigurationSection from "./DynamicLabConfigurationSection";
+import StorageArchitectureSection from "./StorageArchitectureSection";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <HowItWorksSection />
       <RoleAccessSection />
       <DynamicLabConfigurationSection />
+      <StorageArchitectureSection />
       <LandingFooter />
     </>
   );
