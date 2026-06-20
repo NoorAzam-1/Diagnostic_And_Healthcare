@@ -1,88 +1,142 @@
 import { LoginPage } from "@/components/login/LoginPage";
-import { Activity, ShieldCheck, CheckCircle2 } from "lucide-react";
+import {
+  Activity,
+  ShieldCheck,
+  CheckCircle2,
+  Database,
+  Users,
+  FlaskConical,
+} from "lucide-react";
+
+const features = [
+  "ABDM Ready",
+  "Role Based Access",
+  "Patient Records",
+  "Multi Branch Management",
+  "Lab Diagnostics",
+  "Audit Logs",
+];
 
 export default function HeroSection() {
   return (
-    <section className="mt-10 py-12 lg:py-20 px-6 max-w-7xl mx-auto">
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-indigo-600/20 blur-[140px] rounded-full pointer-events-none" />
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-        <div className="lg:col-span-7 space-y-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 font-medium text-xs tracking-wide backdrop-blur-sm">
-            <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
-            ABDM Compliant Healthcare SaaS
-          </div>
+    <section className="relative overflow-hidden pt-24 pb-6 md:pt-24 lg:pt-28">
+      <div className="absolute top-0 left-0 h-[500px] w-[500px] rounded-full bg-red-100 blur-[160px]" />
 
-          <div className="space-y-5">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
-              Unified Intelligence
-              <br />
-              <span className="bg-linear-to-r from-indigo-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent">
-                for Modern Indian Labs
+      <div className="container-custom relative z-10">
+        <div className="grid lg:grid-cols-12 gap-16 lg:items-start">
+          <div className="lg:col-span-7">
+            <div className="inline-flex items-center gap-2 rounded-full border border-red-200 bg-red-50 px-4 py-2 text-xs font-semibold tracking-wider text-red-700 uppercase">
+              <span className="h-2 w-2 rounded-full bg-red-600 animate-pulse" />
+              Healthcare ERP Platform
+            </div>
+
+            <h1 className="mt-4 max-w-6xl text-4xl sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl font-black tracking-tight text-heading leading-[1.05]">
+              <span className="block">Healthcare Operating System</span>
+
+              <span className="block py-1 md:py-2 bg-linear-to-r from-red-600 via-red-500 to-black bg-clip-text text-transparent">
+                For Diagnostic Labs
               </span>
+
+              <span className="block">& Hospitals</span>
             </h1>
 
-            <p className="text-slate-400 text-base sm:text-lg max-w-xl font-normal leading-relaxed">
-              Empower your diagnostic lab or hospital with real-time patient
-              data tracking, structured clinical analytics, and high-performance
-              workflow automation.
+            <p className="mt-6 max-w-2xl text-lg md:text-xl leading-relaxed text-body">
+              Manage patient records, laboratory workflows, staff operations,
+              reports, audit logs and healthcare data through one secure,
+              scalable and ABDM-ready platform.
             </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              {features.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-2 rounded-full border border-border bg-white px-4 py-2 text-sm font-medium text-body shadow-sm"
+                >
+                  <CheckCircle2 size={14} className="text-green-600" />
+                  {item}
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10 flex flex-wrap gap-4">
+              <button className="rounded-2xl bg-primary px-6 py-4 text-white font-semibold shadow-[0_12px_32px_rgba(230,0,18,0.18)] transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+                Request Demo
+              </button>
+
+              <button className="rounded-2xl border border-border bg-white px-6 py-4 font-semibold text-heading shadow-sm transition-all duration-300 hover:border-red-300 cursor-pointer">
+                View Platform
+              </button>
+            </div>
           </div>
 
-          <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-400 font-medium">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
-              Real-time Analytics
-            </div>
+          <div className="lg:col-span-5 lg:sticky lg:top-28">
+            <div className="relative">
+              <div className="absolute inset-0 rounded-[40px] bg-linear-to-br from-red-100 via-white to-sky-100 blur-3xl" />
 
-            <div className="flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
-              Multi-branch Sync
-            </div>
-
-            <div className="flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
-              100% Data Isolation
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2">
-            <div className="p-5 bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-2xl shadow-xl hover:border-indigo-500/40 hover:-translate-y-1 transition-all duration-300 group">
-              <div className="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-4 group-hover:bg-indigo-500/20 transition-colors">
-                <Activity size={20} className="text-indigo-400" />
+              <div className="relative rounded-[36px] border border-border bg-white p-3 shadow-[0_30px_80px_rgba(0,0,0,0.08)]">
+                <LoginPage />
               </div>
 
-              <h3 className="font-bold text-base text-white mb-2">
-                Live Diagnostics Hub
-              </h3>
-
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Monitor active test volumes, patient wait times, and turnaround
-                speed across all counters instantly.
-              </p>
-            </div>
-
-            <div className="p-5 bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-2xl shadow-xl hover:border-emerald-500/40 hover:-translate-y-1 transition-all duration-300 group">
-              <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4 group-hover:bg-emerald-500/20 transition-colors">
-                <ShieldCheck size={20} className="text-emerald-400" />
+              <div className="absolute -top-4 -right-4 rounded-2xl border border-green-200 bg-white px-4 py-3 shadow-lg">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck size={18} className="text-green-600" />
+                  <span className="text-sm font-semibold text-heading">
+                    ABDM Ready
+                  </span>
+                </div>
               </div>
 
-              <h3 className="font-bold text-base text-white mb-2">
-                ABDM Health Locker
-              </h3>
-
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Seamless generation of ABHA IDs and secure processing of digital
-                health records under Indian national standards.
-              </p>
+              <div className="absolute -bottom-4 -left-4 rounded-2xl border border-sky-200 bg-white px-4 py-3 shadow-lg">
+                <div className="flex items-center gap-2">
+                  <Activity size={18} className="text-sky-600" />
+                  <span className="text-sm font-semibold text-heading">
+                    Real-time Operations
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="lg:col-span-5 relative">
-          <div className="absolute inset-0 bg-linear-to-tr from-indigo-500/10 via-violet-500/10 to-cyan-500/10 rounded-3xl blur-3xl" />
+        <div className="mt-14 grid md:grid-cols-12 gap-5">
+          <div className="md:col-span-6 rounded-4xl border border-border bg-surface p-6 shadow-sm">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-red-50">
+              <Users size={22} className="text-red-600" />
+            </div>
 
-          <div className="relative border border-slate-800 bg-slate-900/50 backdrop-blur-xl shadow-2xl rounded-2xl p-2">
-            <LoginPage />
+            <h3 className="text-xl font-bold text-heading">
+              Patient Management
+            </h3>
+
+            <p className="mt-3 text-body leading-relaxed">
+              Centralized patient registration, demographic information,
+              clinical history, search, tracking and healthcare records
+              management across all branches.
+            </p>
+          </div>
+
+          <div className="md:col-span-3 rounded-4xl border border-border bg-surface p-6 shadow-sm">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-green-50">
+              <FlaskConical size={22} className="text-green-600" />
+            </div>
+
+            <h3 className="text-lg font-bold text-heading">Lab Diagnostics</h3>
+
+            <p className="mt-3 text-sm text-body leading-relaxed">
+              CBC, LFT, KFT, Thyroid and custom test configuration.
+            </p>
+          </div>
+
+          <div className="md:col-span-3 rounded-4xl border border-border bg-surface p-6 shadow-sm">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-50">
+              <Database size={22} className="text-sky-600" />
+            </div>
+
+            <h3 className="text-lg font-bold text-heading">Secure Data</h3>
+
+            <p className="mt-3 text-sm text-body leading-relaxed">
+              Tenant isolation, audit logs and enterprise-grade security.
+            </p>
           </div>
         </div>
       </div>
