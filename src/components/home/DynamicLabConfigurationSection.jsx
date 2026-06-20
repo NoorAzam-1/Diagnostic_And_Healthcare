@@ -62,7 +62,7 @@ export default function DynamicLabConfigurationSection() {
             </span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-body">
+          <p className="mx-auto mt-5 max-w-6xl text-lg leading-relaxed text-body">
             Unlike traditional laboratory software, HERAI ONE allows
             administrators to enable diagnostic panels, create custom
             parameters and generate patient workflows dynamically without
@@ -77,7 +77,7 @@ export default function DynamicLabConfigurationSection() {
             viewport={{ once: true }}
             className="lg:col-span-5"
           >
-            <div className="rounded-[36px] border border-border bg-white p-8 shadow-sm">
+            <div className="rounded-[36px] border border-border bg-white p-5 shadow-sm">
               <div className="flex items-center gap-3">
                 <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-red-50">
                   <Settings2 size={24} className="text-red-600" />
@@ -113,8 +113,8 @@ export default function DynamicLabConfigurationSection() {
               </div>
 
               <div className="mt-8 grid grid-cols-2 gap-4">
-                <div className="rounded-3xl border border-border bg-surface p-5 text-center">
-                  <h4 className="text-3xl font-black text-heading">
+                <div className="rounded-3xl border border-border bg-surface p-3 text-center">
+                  <h4 className="text-2xl font-black text-heading">
                     Unlimited
                   </h4>
 
@@ -124,7 +124,7 @@ export default function DynamicLabConfigurationSection() {
                 </div>
 
                 <div className="rounded-3xl border border-border bg-surface p-5 text-center">
-                  <h4 className="text-3xl font-black text-heading">
+                  <h4 className="text-2xl font-black text-heading">
                     Runtime
                   </h4>
 

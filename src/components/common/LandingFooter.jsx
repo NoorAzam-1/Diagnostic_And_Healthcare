@@ -192,7 +192,7 @@ export default function LandingFooter() {
             </div>
           </div>
         </div>
-        <div className="mt-4 flex md:gap-6 justify-end items-center">
+        <div className="mt-4 sm:flex md:gap-6 justify-end items-center">
           <div className="flex items-center gap-3 text-body">
             <Mail size={16} className="text-red-600" />
             contact@heraione.com
