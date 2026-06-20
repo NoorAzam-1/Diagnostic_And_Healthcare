@@ -1,7 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldCheck, UserCog, Users, Check, X, Lock } from "lucide-react";
+import {
+  ShieldCheck,
+  UserCog,
+  Users,
+  Check,
+  X,
+  Lock,
+} from "lucide-react";
 
 const permissions = [
   {
@@ -15,7 +22,7 @@ const permissions = [
     staff: true,
   },
   {
-    feature: "Reports",
+    feature: "Reports & Analytics",
     admin: true,
     staff: true,
   },
@@ -56,149 +63,151 @@ const permissions = [
   },
 ];
 
+const adminFeatures = [
+  "Organization Management",
+  "User Management",
+  "Storage Configuration",
+  "Audit Logs",
+  "Lab Configuration",
+  "Reports & Analytics",
+];
+
+const staffFeatures = [
+  "Patient Records",
+  "Lab Result Entry",
+  "Reports",
+  "Daily Operations",
+];
+
 export default function RoleAccessSection() {
   return (
-    <section
-      id="roles"
-      className="relative overflow-hidden pb-14 px-6 lg:px-16"
-    >
-      <div className="relative z-10 max-w-7xl mx-auto">
+    <section id="roles" className="relative overflow-hidden py-6 md:py-8 lg:py-12">
+      <div className="absolute top-20 left-20 h-[400px] w-[400px] rounded-full bg-red-100 blur-[140px]" />
+
+      <div className="container-custom relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
-          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
           className="text-center"
         >
-          <span className="inline-flex items-center rounded-full border border-indigo-500/20 bg-indigo-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-indigo-400">
+          <span className="inline-flex rounded-full border border-red-200 bg-red-50 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-red-700">
             Role Management
           </span>
 
-          <h2 className="mt-5 text-4xl md:text-5xl font-black text-white">
-            Healthcare Role Management
-            <span className="block bg-linear-to-r from-indigo-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent">
+          <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-black text-heading">
+            Secure Healthcare Access
+            <span className="block bg-linear-to-r from-red-600 via-red-500 to-black bg-clip-text text-transparent">
               For Administrators & Staff
             </span>
           </h2>
 
-          <p className="mt-4 max-w-3xl mx-auto text-slate-400 text-lg leading-relaxed">
-            Control access across patient records, laboratory workflows,
-            reporting, audit logs and organization settings using a secure
-            role-based permission system.
+          <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-body">
+            Control access across patient records, diagnostics, reporting,
+            security and organization settings through a powerful role-based
+            permission system.
           </p>
         </motion.div>
 
-        <div className="mt-12 grid md:grid-cols-2 gap-5">
+        <div className="mt-14 grid gap-5 lg:grid-cols-2">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -25 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             whileHover={{ y: -5 }}
-            className="rounded-3xl border border-indigo-500/20 bg-slate-900/60 backdrop-blur-xl p-6"
+            className="rounded-4xl border border-border bg-white p-7 shadow-sm transition-all hover:shadow-xl"
           >
             <div className="flex items-center gap-4">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-linear-to-br from-indigo-500 to-violet-600">
-                <UserCog size={24} className="text-white" />
+              <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-red-50">
+                <UserCog size={28} className="text-red-600" />
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-white">Administrator</h3>
+                <h3 className="text-2xl font-bold text-heading">
+                  Administrator
+                </h3>
 
-                <p className="text-slate-400 text-sm">
+                <p className="text-body">
                   Complete organizational control
                 </p>
               </div>
             </div>
 
-            <div className="mt-5 flex flex-wrap gap-2">
-              <span className="rounded-full bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 text-xs text-indigo-400">
-                User Management
-              </span>
-
-              <span className="rounded-full bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 text-xs text-indigo-400">
-                Audit Logs
-              </span>
-
-              <span className="rounded-full bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 text-xs text-indigo-400">
-                Storage Settings
-              </span>
-
-              <span className="rounded-full bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 text-xs text-indigo-400">
-                Configuration
-              </span>
-
-              <span className="rounded-full bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 text-xs text-indigo-400">
-                Dashboard
-              </span>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {adminFeatures.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-red-200 bg-red-50 px-3 py-1 text-xs font-medium text-red-700"
+                >
+                  {item}
+                </span>
+              ))}
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 25 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             whileHover={{ y: -5 }}
-            className="rounded-3xl border border-cyan-500/20 bg-slate-900/60 backdrop-blur-xl p-6"
+            className="rounded-[32px] border border-border bg-white p-7 shadow-sm transition-all hover:shadow-xl"
           >
             <div className="flex items-center gap-4">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-linear-to-br from-cyan-500 to-blue-600">
-                <Users size={24} className="text-white" />
+              <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-sky-50">
+                <Users size={28} className="text-sky-600" />
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-white">Staff Member</h3>
-                <p className="text-slate-400 text-sm">
+                <h3 className="text-2xl font-bold text-heading">
+                  Staff Member
+                </h3>
+
+                <p className="text-body">
                   Daily healthcare operations
                 </p>
               </div>
             </div>
 
-            <div className="mt-5 flex flex-wrap gap-2">
-              <span className="rounded-full bg-cyan-500/10 border border-cyan-500/20 px-3 py-1 text-xs text-cyan-400">
-                Patient Records
-              </span>
-
-              <span className="rounded-full bg-cyan-500/10 border border-cyan-500/20 px-3 py-1 text-xs text-cyan-400">
-                Lab Results
-              </span>
-
-              <span className="rounded-full bg-cyan-500/10 border border-cyan-500/20 px-3 py-1 text-xs text-cyan-400">
-                Reports
-              </span>
-
-              <span className="rounded-full bg-cyan-500/10 border border-cyan-500/20 px-3 py-1 text-xs text-cyan-400">
-                Staff Dashboard
-              </span>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {staffFeatures.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-medium text-sky-700"
+                >
+                  {item}
+                </span>
+              ))}
             </div>
           </motion.div>
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-8 overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/60backdrop-blur-xl
-          "
+          className="mt-10 overflow-hidden rounded-4xl border border-border bg-white shadow-sm"
         >
-          <div className="flex items-center gap-2 border-b border-slate-800 px-5 py-4">
-            <Lock size={18} className="text-indigo-400" />
+          <div className="flex items-center gap-3 border-b border-border px-6 py-5">
+            <Lock size={18} className="text-red-600" />
 
-            <h3 className="font-semibold text-white ">Permission Matrix</h3>
+            <h3 className="font-semibold text-heading">
+              Permission Matrix
+            </h3>
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[650px]">
+            <table className="w-full min-w-[700px]">
               <thead>
-                <tr className="border-b border-slate-800">
-                  <th className="px-5 py-4 text-left text-sm font-medium text-slate-400">
+                <tr className="border-b border-border bg-surface">
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-heading">
                     Feature
                   </th>
 
-                  <th className="px-5 py-4 text-center text-sm font-semibold text-indigo-400">
-                    Admin
+                  <th className="px-6 py-4 text-center text-sm font-semibold text-red-600">
+                    Administrator
                   </th>
 
-                  <th className="px-5 py-4 text-center text-sm font-semibold text-cyan-400">
+                  <th className="px-6 py-4 text-center text-sm font-semibold text-sky-600">
                     Staff
                   </th>
                 </tr>
@@ -208,25 +217,37 @@ export default function RoleAccessSection() {
                 {permissions.map((item) => (
                   <tr
                     key={item.feature}
-                    className="border-b border-slate-800/50 hover:bg-slate-800/30 transition-colors"
+                    className="border-b border-border transition-colors hover:bg-surface"
                   >
-                    <td className="px-5 py-3 text-sm text-slate-300">
+                    <td className="px-6 py-4 text-body">
                       {item.feature}
                     </td>
 
-                    <td className="px-5 py-3 text-center">
+                    <td className="px-6 py-4 text-center">
                       {item.admin ? (
-                        <Check size={18} className="mx-auto text-emerald-400" />
+                        <Check
+                          size={18}
+                          className="mx-auto text-green-600"
+                        />
                       ) : (
-                        <X size={18} className="mx-auto text-rose-400" />
+                        <X
+                          size={18}
+                          className="mx-auto text-red-500"
+                        />
                       )}
                     </td>
 
-                    <td className="px-5 py-3 text-center">
+                    <td className="px-6 py-4 text-center">
                       {item.staff ? (
-                        <Check size={18} className="mx-auto text-emerald-400" />
+                        <Check
+                          size={18}
+                          className="mx-auto text-green-600"
+                        />
                       ) : (
-                        <X size={18} className="mx-auto text-rose-400" />
+                        <X
+                          size={18}
+                          className="mx-auto text-red-500"
+                        />
                       )}
                     </td>
                   </tr>
