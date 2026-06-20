@@ -68,7 +68,7 @@ export default function StorageArchitectureSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             whileHover={{ y: -6 }}
-            className="rounded-[36px] border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl"
+            className="rounded-[36px] border border-border bg-white p-8 shadow-sm transition-all duration-2000 hover:shadow-xl"
           >
             <div className="flex items-center gap-4">
               <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-red-50">
@@ -127,7 +127,7 @@ export default function StorageArchitectureSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             whileHover={{ y: -6 }}
-            className="rounded-[36px] border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl"
+            className="rounded-[36px] border border-border bg-white p-8 shadow-sm transition-all duration-2000 hover:shadow-xl"
           >
             <div className="flex items-center gap-4">
               <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-sky-50">
