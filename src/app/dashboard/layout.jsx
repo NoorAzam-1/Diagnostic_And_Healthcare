@@ -12,13 +12,17 @@ export default function DashboardLayout({ children }) {
       <DashboardHeader onMenuToggle={() => setMobileMenuOpen(true)} />
 
       {mobileMenuOpen && (
-        <div 
-          className="fixed inset-0 z-40 bg-black/50 md:hidden" 
-          onClick={() => setMobileMenuOpen(false)} 
+        <div
+          className="fixed inset-0 z-40 bg-black/50 md:hidden"
+          onClick={() => setMobileMenuOpen(false)}
         />
       )}
 
-      <aside className={`fixed inset-y-0 left-0 z-50 w-72 transform bg-background p-4 pt-6 transition-transform duration-300 ease-in-out md:hidden overflow-y-auto ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"}`}>
+      <aside
+        className={`fixed inset-y-0 left-0 z-50 w-72 transform bg-background p-4 pt-6 transition-transform duration-300 ease-in-out md:hidden overflow-y-auto ${
+          mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
         <DashboardSidebar isMobile onClose={() => setMobileMenuOpen(false)} />
       </aside>
 
@@ -28,15 +32,12 @@ export default function DashboardLayout({ children }) {
         </aside>
 
         <div className="flex min-w-0 flex-1 flex-col min-h-0">
-          <main className="flex-1 overflow-hidden rounded-[32px] border border-border bg-white shadow-sm">
+          <main className="flex-1 overflow-hidden rounded-2xl border border-border bg-white shadow-sm">
             <div className="relative flex h-full flex-col">
               <div className="pointer-events-none absolute left-0 top-0 h-24 w-full bg-linear-to-b from-red-50/60 to-transparent" />
 
               <div className="relative z-10 flex-1 overflow-y-auto">
                 {children}
-              </div>
-
-              <div className="border-t border-border shrink-0">
                 <DashboardFooter />
               </div>
             </div>
