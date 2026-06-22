@@ -63,7 +63,7 @@ export default function DynamicLabConfigurationSection() {
           </h2>
 
           <p className="mx-auto mt-5 max-w-6xl text-lg leading-relaxed text-body">
-            Unlike traditional laboratory software, HERAI ONE allows
+            Unlike traditional laboratory software, HARAI ONE allows
             administrators to enable diagnostic panels, create custom
             parameters and generate patient workflows dynamically without
             developer involvement.
