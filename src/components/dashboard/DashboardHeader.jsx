@@ -1,15 +1,20 @@
 "use client";
-import { Activity, Moon, Sun, LogOut } from "lucide-react";
+
+import {
+  Activity,
+  LogOut,
+  ShieldCheck,
+} from "lucide-react";
+
 import { useApp } from "@/context/AppContext";
 import { useRouter } from "next/navigation";
 
 export default function DashboardHeader() {
   const router = useRouter();
+
   const {
     clinicName,
     licenseCode,
-    isDarkMode,
-    setIsDarkMode,
   } = useApp();
 
   const handleLogout = () => {
@@ -17,37 +22,62 @@ export default function DashboardHeader() {
   };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 backdrop-blur-lg transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
-        <div className="flex items-center space-x-3">
-          <div className="p-2.5 bg-indigo-600 rounded-xl text-white shadow-md shadow-indigo-200 dark:shadow-none">
-            <Activity size={22} className="animate-pulse" />
-          </div>
-          <div>
-            <h1 className="text-base font-black text-slate-900 dark:text-white tracking-tight">
-              {clinicName}
-            </h1>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400">
-              License: <span className="font-mono">{licenseCode}</span>
-            </p>
-          </div>
-        </div>
+    <header className="sticky top-0 z-50 border-b border-border bg-white/90 backdrop-blur-xl">
+      <div className="container-custom">
+        <div className="flex flex-col gap-4 py-4 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex items-center gap-4">
+            <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-primary text-white shadow-red">
+              <Activity size={24} />
+            </div>
 
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => setIsDarkMode(!isDarkMode)}
-            className="p-2.5 border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-xl cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-700 transition-all"
-            aria-label="Toggle Theme"
-          >
-            {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
-          </button>
+            <div>
+              <div className="flex flex-wrap items-center gap-2">
+                <h1 className="text-lg font-black text-heading">
+                  {clinicName}
+                </h1>
 
-          <button
-            onClick={handleLogout}
-            className="bg-rose-50 text-rose-600 hover:bg-rose-100 border border-rose-100 dark:bg-rose-500/10 dark:text-rose-400 dark:border-rose-500/20 dark:hover:bg-rose-500/20 px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all shadow-sm cursor-pointer"
-          >
-            <LogOut size={14} /> <span>Logout</span>
-          </button>
+                <span className="rounded-full border border-green-200 bg-green-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-green-700">
+                  Active
+                </span>
+              </div>
+
+              <div className="mt-1 flex flex-wrap items-center gap-3">
+                <p className="text-xs text-body">
+                  Healthcare Organization
+                </p>
+
+                <span className="h-1 w-1 rounded-full bg-muted" />
+
+                <div className="flex items-center gap-1 text-xs text-body">
+                  <ShieldCheck
+                    size={12}
+                    className="text-green-600"
+                  />
+                  ABDM Ready
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="rounded-2xl border border-border bg-surface px-4 py-2">
+              <p className="text-[10px] uppercase tracking-wider text-muted">
+                License Code
+              </p>
+
+              <p className="font-mono text-xs font-semibold text-heading">
+                {licenseCode}
+              </p>
+            </div>
+
+            <button
+              onClick={handleLogout}
+              className="flex items-center gap-2 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-600 transition-all hover:bg-red-100 cursor-pointer"
+            >
+              <LogOut size={16} />
+              Logout
+            </button>
+          </div>
         </div>
       </div>
     </header>
