@@ -1,5 +1,5 @@
 import { Header } from "@/components/common/Header";
-import LandingFooter from "@/components/common/LandingFooter";
+import Footer from "@/components/common/Footer";
 import HeroSection from "./HeroSection";
 import TrustedBySection from "./TrustedBySection";
 import ProductOverviewSection from "./ProductOverviewSection";
@@ -19,7 +19,7 @@ export default function Home() {
       <RoleAccessSection />
       <DynamicLabConfigurationSection />
       <StorageArchitectureSection />
-      <LandingFooter />
+      <Footer />
     </>
   );
 }
