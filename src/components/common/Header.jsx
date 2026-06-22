@@ -47,7 +47,7 @@ export const Header = () => {
 
             <div>
               <h1 className="text-lg font-black leading-none text-heading">
-                HERAI ONE
+                HARAI ONE
               </h1>
 
               <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted">
