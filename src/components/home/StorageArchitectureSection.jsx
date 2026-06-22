@@ -55,7 +55,7 @@ export default function StorageArchitectureSection() {
           </h2>
 
           <p className="mx-auto mt-5 max-w-6xl text-lg leading-relaxed text-body">
-            HERAI ONE supports both local and cloud storage models,
+            HARAI ONE supports both local and cloud storage models,
             allowing healthcare organizations to choose the architecture
             that best fits their compliance, performance and operational
             requirements.
