@@ -16,8 +16,8 @@ export default function Footer() {
       <div className="absolute bottom-0 right-0 h-[300px] w-[300px] rounded-full bg-sky-100 blur-[120px]" />
 
       <div className=" relative z-10 py-10">
-        <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 lg:grid-cols-12">
+          <div className="col-span-2 md:col-span-4 lg:col-span-4">
             <div className="flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-600 text-white shadow-md">
                 <Activity size={22} />
@@ -192,7 +192,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-4 sm:flex md:gap-6 justify-end items-center">
+        <div className="mt-4 sm:flex md:gap-6 md:mt-8 justify-end items-center">
           <div className="flex items-center gap-3 text-body">
             <Mail size={16} className="text-red-600" />
             contact@heraione.com
