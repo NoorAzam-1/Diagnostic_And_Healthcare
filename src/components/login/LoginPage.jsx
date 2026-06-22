@@ -30,7 +30,7 @@ export const LoginPage = () => {
   };
 
   return (
-    <div id="login-anchor" className="p-1 md:p-8 lg:p-2">
+    <div id="login-anchor" className="p-1 md:p-8 lg:p-2 scroll-m-32">
       <div className="text-center">
         <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-red-50 border border-red-100">
           <LockKeyhole size={28} className="text-red-600" />
