@@ -37,8 +37,8 @@ export const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-white/90 backdrop-blur-xl">
-      <div className="container-custom">
+    <header className="fixed container-custom inset-x-0 top-0 z-50 border-b border-border bg-white/90 backdrop-blur-xl">
+      <div className="">
         <div className="flex h-20 items-center justify-between">
           <Link href="/" className="flex shrink-0 items-center gap-3">
             <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary text-white shadow-[0_10px_25px_rgba(230,0,18,0.18)]">
