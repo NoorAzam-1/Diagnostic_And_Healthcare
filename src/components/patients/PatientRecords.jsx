@@ -15,7 +15,6 @@ import { useApp } from "@/context/AppContext";
 
 export function PatientRecords() {
   const {
-    isDarkMode,
     patients,
     inspectedPatientId,
     setInspectedPatientId,
@@ -28,26 +27,20 @@ export function PatientRecords() {
   return (
     <div className="p-6 space-y-6 flex-1 flex flex-col justify-between h-full overflow-hidden">
       <div className="space-y-4 shrink-0">
-        <div className="border-b pb-4 border-slate-200 dark:border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="border-b border-border pb-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <h2 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+            <h2 className="text-xl font-bold tracking-tight text-heading">
               Patient Repository Vault
             </h2>
           </div>
         </div>
 
-        <div
-          className={`p-3 rounded-lg border shadow-sm transition-colors ${
-            isDarkMode
-              ? "bg-slate-900 border-slate-800 focus-within:border-indigo-500"
-              : "bg-white border-slate-200 focus-within:border-indigo-500"
-          } flex items-center space-x-3`}
-        >
-          <Search className="text-slate-400" size={18} />
+        <div className="p-3 rounded-lg border border-border bg-white shadow-sm transition-colors focus-within:border-primary flex items-center space-x-3">
+          <Search className="text-muted" size={18} />
           <input
             type="text"
             placeholder="Search by Patient Code, Name, or Mobile..."
-            className="bg-transparent text-sm placeholder-slate-400 focus:outline-none w-full text-slate-900 dark:text-white"
+            className="bg-transparent text-sm placeholder-muted focus:outline-none w-full text-heading"
           />
         </div>
       </div>
@@ -55,7 +48,7 @@ export function PatientRecords() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 min-h-0 overflow-hidden">
         <div className="lg:col-span-4 flex flex-col min-h-0">
           <div className="flex items-center justify-between mb-3 shrink-0">
-            <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">
+            <span className="text-[10px] uppercase font-bold text-muted tracking-wider">
               Patient Ledger ({patients.length})
             </span>
           </div>
@@ -73,16 +66,16 @@ export function PatientRecords() {
                 }}
                 className={`group p-3 rounded-xl border transition-all cursor-pointer flex items-center justify-between ${
                   inspectedPatientId === p.id
-                    ? "bg-indigo-50 border-indigo-500 dark:bg-indigo-950/30 dark:border-indigo-500 shadow-sm ring-1 ring-indigo-500/20"
-                    : "bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600"
+                    ? "bg-red-50 border-primary shadow-sm ring-1 ring-primary/20"
+                    : "bg-white border-border hover:border-border-hover"
                 }`}
               >
                 <div className="flex items-center space-x-3 overflow-hidden">
                   <div
                     className={`shrink-0 w-8 h-8 flex items-center justify-center rounded text-xs font-bold font-mono ${
                       inspectedPatientId === p.id
-                        ? "bg-indigo-200 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300"
-                        : "bg-slate-100 text-slate-600 dark:bg-slate-900 dark:text-slate-400"
+                        ? "bg-red-100 text-primary"
+                        : "bg-surface text-body"
                     }`}
                   >
                     {p.fullName.charAt(0)}
@@ -91,13 +84,13 @@ export function PatientRecords() {
                     <span
                       className={`font-bold block text-sm truncate ${
                         inspectedPatientId === p.id
-                          ? "text-indigo-700 dark:text-indigo-300"
-                          : "text-slate-900 dark:text-slate-100"
+                          ? "text-primary"
+                          : "text-heading"
                       }`}
                     >
                       {p.fullName}
                     </span>
-                    <span className="text-[10px] text-slate-400 block font-medium truncate">
+                    <span className="text-[10px] text-muted block font-medium truncate">
                       {p.gender} • {p.dob}
                     </span>
                   </div>
@@ -106,8 +99,8 @@ export function PatientRecords() {
                   size={16}
                   className={`shrink-0 transition-transform ${
                     inspectedPatientId === p.id
-                      ? "text-indigo-500 translate-x-1"
-                      : "text-slate-300 group-hover:text-slate-500"
+                      ? "text-primary translate-x-1"
+                      : "text-muted group-hover:text-body"
                   }`}
                 />
               </div>
@@ -115,36 +108,29 @@ export function PatientRecords() {
           </div>
         </div>
 
-        <div
-          className={`lg:col-span-8 flex flex-col h-full rounded-2xl border overflow-hidden ${
-            isDarkMode
-              ? "bg-slate-950 border-slate-800"
-              : "bg-white border-slate-200"
-          }`}
-        >
+        <div className="lg:col-span-8 flex flex-col h-full rounded-2xl border border-border bg-white overflow-hidden">
           {activeInspectedPatient ? (
             <>
-              <div className="p-6 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 shrink-0">
+              <div className="p-6 border-b border-border bg-surface shrink-0">
                 <div className="flex items-start justify-between">
                   <div className="flex items-start gap-4">
-                    <div className="p-3 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm">
-                      <User className="text-indigo-500" size={24} />
+                    <div className="p-3 bg-white rounded-lg border border-border shadow-sm">
+                      <User className="text-primary" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                      <h3 className="text-lg font-bold text-heading">
                         {activeInspectedPatient.fullName}
                       </h3>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">
+                      <p className="text-xs text-muted font-mono mt-0.5">
                         ID: {activeInspectedPatient.id}
                       </p>
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-[10px] uppercase font-bold text-slate-400">
+                    <div className="text-[10px] uppercase font-bold text-muted">
                       Gender / Age
                     </div>
-
-                    <div className="text-sm font-semibold text-slate-700 dark:text-slate-300">
+                    <div className="text-sm font-semibold text-body">
                       {activeInspectedPatient?.gender} •{" "}
                       {new Date().getFullYear() -
                         new Date(
@@ -156,9 +142,11 @@ export function PatientRecords() {
                 </div>
               </div>
 
+              {/* Detail Body */}
               <div className="flex-1 overflow-y-auto p-6 space-y-8 custom-scrollbar">
+                {/* Allergy Warning */}
                 {activeInspectedPatient.demographics?.knownAllergies && (
-                  <div className="flex items-start gap-3 p-4 bg-rose-50 dark:bg-rose-950/20 border border-rose-100 dark:border-rose-900/50 rounded-xl">
+                  <div className="flex items-start gap-3 p-4 bg-rose-50 border border-rose-100 rounded-xl">
                     <AlertTriangle
                       className="text-rose-600 shrink-0 mt-0.5"
                       size={18}
@@ -167,93 +155,95 @@ export function PatientRecords() {
                       <span className="text-[10px] uppercase font-bold text-rose-500 tracking-wider">
                         Known Allergy Warning
                       </span>
-                      <p className="text-sm font-bold text-rose-800 dark:text-rose-300">
+                      <p className="text-sm font-bold text-rose-800">
                         {activeInspectedPatient.demographics.knownAllergies}
                       </p>
                     </div>
                   </div>
                 )}
 
+                {/* Quick Info Cards */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="p-3 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800">
+                  <div className="p-3 rounded-lg bg-surface border border-border">
                     <div className="flex items-center gap-2 mb-1">
-                      <Phone size={12} className="text-slate-400" />
-                      <span className="text-[10px] uppercase font-bold text-slate-400">
+                      <Phone size={12} className="text-muted" />
+                      <span className="text-[10px] uppercase font-bold text-muted">
                         Mobile
                       </span>
                     </div>
-                    <span className="block text-sm font-semibold text-slate-700 dark:text-slate-300">
+                    <span className="block text-sm font-semibold text-body">
                       {activeInspectedPatient.phone}
                     </span>
                   </div>
 
-                  <div className="p-3 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800">
+                  <div className="p-3 rounded-lg bg-surface border border-border">
                     <div className="flex items-center gap-2 mb-1">
-                      <Layers size={12} className="text-slate-400" />
-                      <span className="text-[10px] uppercase font-bold text-slate-400">
+                      <Layers size={12} className="text-muted" />
+                      <span className="text-[10px] uppercase font-bold text-muted">
                         Blood Group
                       </span>
                     </div>
-                    <span className="block text-sm font-semibold text-slate-700 dark:text-slate-300">
+                    <span className="block text-sm font-semibold text-body">
                       {activeInspectedPatient.demographics?.bloodGroup || "N/A"}
                     </span>
                   </div>
 
-                  <div className="col-span-2 p-3 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800">
+                  <div className="col-span-2 p-3 rounded-lg bg-surface border border-border">
                     <div className="flex items-center gap-2 mb-1">
-                      <Shield size={12} className="text-slate-400" />
-                      <span className="text-[10px] uppercase font-bold text-slate-400">
+                      <Shield size={12} className="text-muted" />
+                      <span className="text-[10px] uppercase font-bold text-muted">
                         National ID (Aadhaar)
                       </span>
                     </div>
-                    <span className="block text-sm font-mono font-semibold text-slate-700 dark:text-slate-300">
+                    <span className="block text-sm font-mono font-semibold text-body">
                       {activeInspectedPatient.demographics?.nationalId || "N/A"}
                     </span>
                   </div>
                 </div>
 
+                {/* Clinical Diagnostics */}
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
-                    <Activity size={16} className="text-indigo-500" />
-                    <h4 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wide">
+                    <Activity size={16} className="text-primary" />
+                    <h4 className="text-sm font-bold text-heading uppercase tracking-wide">
                       Clinical Diagnostics
                     </h4>
-                    <span className="text-xs font-medium text-slate-400">
+                    <span className="text-xs font-medium text-muted">
                       Request: {activeInspectedPatient.testRequested}
                     </span>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {activeInspectedPatient.diagnostics?.bloodGlucose && (
-                      <div className="p-4 rounded-xl border bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 shadow-sm">
-                        <span className="block text-[10px] uppercase font-bold text-slate-400 mb-3">
+                      <div className="p-4 rounded-xl border bg-white border-border shadow-sm">
+                        <span className="block text-[10px] uppercase font-bold text-muted mb-3">
                           Blood Glucose Analysis
                         </span>
                         <div className="space-y-2">
-                          <div className="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-2">
-                            <span className="text-xs text-slate-500">
+                          <div className="flex justify-between items-center border-b border-border pb-2">
+                            <span className="text-xs text-body">
                               Fasting
                             </span>
-                            <span className="font-mono font-bold text-slate-900 dark:text-white">
+                            <span className="font-mono font-bold text-heading">
                               {
                                 activeInspectedPatient.diagnostics.bloodGlucose
                                   .fasting
                               }
-                              <span className="text-[10px] font-normal text-slate-400">
+                              <span className="text-[10px] font-normal text-muted">
                                 mg/dL
                               </span>
                             </span>
                           </div>
                           <div className="flex justify-between items-center">
-                            <span className="text-xs text-slate-500">
+                            <span className="text-xs text-body">
                               Post-Prandial
                             </span>
-                            <span className="font-mono font-bold text-slate-900 dark:text-white">
+                            <span className="font-mono font-bold text-heading">
                               {
                                 activeInspectedPatient.diagnostics.bloodGlucose
                                   .postPrandial
                               }
-                              <span className="text-[10px] font-normal text-slate-400">
+                              <span className="text-[10px] font-normal text-muted">
                                 mg/dL
                               </span>
                             </span>
@@ -263,30 +253,30 @@ export function PatientRecords() {
                     )}
 
                     {activeInspectedPatient.diagnostics?.lipidProfile && (
-                      <div className="p-4 rounded-xl border bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 shadow-sm">
-                        <span className="block text-[10px] uppercase font-bold text-slate-400 mb-3">
+                      <div className="p-4 rounded-xl border bg-white border-border shadow-sm">
+                        <span className="block text-[10px] uppercase font-bold text-muted mb-3">
                           Lipid Profile Analysis
                         </span>
                         <div className="space-y-2">
-                          <div className="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-2">
-                            <span className="text-xs text-slate-500">
+                          <div className="flex justify-between items-center border-b border-border pb-2">
+                            <span className="text-xs text-body">
                               Total Cholesterol
                             </span>
-                            <span className="font-mono font-bold text-slate-900 dark:text-white">
+                            <span className="font-mono font-bold text-heading">
                               {
                                 activeInspectedPatient.diagnostics.lipidProfile
                                   .totalCholesterol
                               }{" "}
-                              <span className="text-[10px] font-normal text-slate-400">
+                              <span className="text-[10px] font-normal text-muted">
                                 mg/dL
                               </span>
                             </span>
                           </div>
                           <div className="flex justify-between items-center gap-4">
-                            <span className="text-xs text-slate-500">
+                            <span className="text-xs text-body">
                               LDL/HDL Ratio
                             </span>
-                            <span className="font-mono font-bold text-slate-900 dark:text-white">
+                            <span className="font-mono font-bold text-heading">
                               {
                                 activeInspectedPatient.diagnostics.lipidProfile
                                   .ldl
@@ -304,12 +294,13 @@ export function PatientRecords() {
                   </div>
                 </div>
 
+                {/* Address */}
                 <div className="space-y-3">
-                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
+                  <h4 className="text-xs font-bold text-muted uppercase tracking-wider flex items-center gap-2">
                     <Home size={12} />
                     Registered Address
                   </h4>
-                  <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                  <div className="p-4 rounded-xl bg-surface border border-border text-sm leading-relaxed text-body">
                     {activeInspectedPatient.demographics?.address ? (
                       <>
                         <span className="block font-semibold">
@@ -319,24 +310,25 @@ export function PatientRecords() {
                           {activeInspectedPatient.demographics.address.city},{" "}
                           {activeInspectedPatient.demographics.address.state}
                         </span>
-                        <span className="block font-mono text-xs mt-1 text-slate-400">
+                        <span className="block font-mono text-xs mt-1 text-muted">
                           PIN:{" "}
                           {activeInspectedPatient.demographics.address.pincode}
                         </span>
                       </>
                     ) : (
-                      <span className="italic text-slate-400">
+                      <span className="italic text-muted">
                         No address on file.
                       </span>
                     )}
                   </div>
                 </div>
 
+                {/* Custom Metrics */}
                 {activeInspectedPatient.customClinicalParameters &&
                   Object.keys(activeInspectedPatient.customClinicalParameters)
                     .length > 0 && (
-                    <div className="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800">
-                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
+                    <div className="space-y-3 pt-4 border-t border-border">
+                      <h4 className="text-xs font-bold text-muted uppercase tracking-wider flex items-center gap-2">
                         <FileText size={12} />
                         Custom Facility Metrics
                       </h4>
@@ -346,12 +338,12 @@ export function PatientRecords() {
                         ).map(([name, val], i) => (
                           <div
                             key={i}
-                            className="flex justify-between items-center p-2.5 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-lg"
+                            className="flex justify-between items-center p-2.5 bg-white border border-border rounded-lg"
                           >
-                            <span className="text-xs text-slate-500 font-semibold uppercase">
+                            <span className="text-xs text-body font-semibold uppercase">
                               {name}
                             </span>
-                            <span className="text-xs font-bold text-slate-900 dark:text-white">
+                            <span className="text-xs font-bold text-heading">
                               {val}
                             </span>
                           </div>
@@ -360,10 +352,11 @@ export function PatientRecords() {
                     </div>
                   )}
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 text-xs text-slate-500">
+                {/* Footer Info */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 text-xs text-body">
                   {activeInspectedPatient.demographics?.emailAddress && (
                     <div>
-                      <span className="block font-bold text-slate-700 dark:text-slate-300">
+                      <span className="block font-bold text-heading">
                         Email
                       </span>
                       {activeInspectedPatient.demographics.emailAddress}
@@ -371,7 +364,7 @@ export function PatientRecords() {
                   )}
                   {activeInspectedPatient.demographics?.insurancePolicy && (
                     <div>
-                      <span className="block font-bold text-slate-700 dark:text-slate-300">
+                      <span className="block font-bold text-heading">
                         Insurance Policy
                       </span>
                       {activeInspectedPatient.demographics.insurancePolicy}
@@ -381,7 +374,7 @@ export function PatientRecords() {
               </div>
             </>
           ) : (
-            <div className="h-full flex flex-col items-center justify-center text-slate-400 p-10 text-center">
+            <div className="h-full flex flex-col items-center justify-center text-muted p-10 text-center">
               <Search size={48} className="opacity-20 mb-4" />
               <p className="font-medium">Select a patient from the ledger</p>
               <p className="text-xs mt-1">to view their clinical dossier.</p>
