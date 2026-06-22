@@ -12,42 +12,56 @@ import {
   Users,
   Shield,
   ChevronRight,
+  X,
 } from "lucide-react";
 
-export default function DashboardSidebar() {
+export default function DashboardSidebar({ isMobile, onClose }) {
   const pathname = usePathname();
 
   const { currentUser } = useApp();
 
   const isAdmin = currentUser?.role?.includes("Admin");
 
+  const handleLinkClick = () => {
+    if (isMobile && onClose) {
+      onClose();
+    }
+  };
+
   return (
-    <aside className="flex h-full flex-col">
-      <div className="rounded-4xl border border-border bg-white p-5 shadow-sm">
+    <div className="flex flex-col relative pb-4">
+      {isMobile && (
+        <button 
+          onClick={onClose} 
+          className="absolute top-2 right-2 z-10 p-2 rounded-xl border border-border bg-white text-body hover:bg-surface-hover transition cursor-pointer"
+        >
+          <X size={18} />
+        </button>
+      )}
+
+      <div className="rounded-xl md:rounded-2xl border border-border bg-white p-5 shadow-sm shrink-0">
         <div className="flex items-center gap-3">
           <div className="relative">
             <span className="block h-3 w-3 rounded-full bg-green-500" />
-
             <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-40" />
           </div>
-
-          <div>
-            <h3 className="font-bold text-heading">
+          <div className="min-w-0">
+            <h3 className="font-bold text-heading truncate">
               {currentUser?.name || "Healthcare User"}
             </h3>
-
-            <p className="text-xs text-body">{currentUser?.role || "Staff"}</p>
+            <p className="text-xs text-body truncate">{currentUser?.role || "Staff"}</p>
           </div>
         </div>
       </div>
 
-      <nav className="mt-5 flex-1 rounded-[28px] border border-border bg-white p-3 shadow-sm">
+      <nav className="mt-5 flex-1 rounded-2xl border border-border bg-white p-3 shadow-sm">
         <div className="space-y-1">
           <NavItem
             href="/dashboard"
             icon={<Layers size={18} />}
             label="Overview"
             active={pathname === "/dashboard"}
+            onClick={handleLinkClick}
           />
 
           <NavItem
@@ -55,6 +69,7 @@ export default function DashboardSidebar() {
             icon={<UserPlus size={18} />}
             label="Patient Registration"
             active={pathname === "/dashboard/intake"}
+            onClick={handleLinkClick}
           />
 
           <NavItem
@@ -62,6 +77,7 @@ export default function DashboardSidebar() {
             icon={<Database size={18} />}
             label="Patient Records"
             active={pathname === "/dashboard/records"}
+            onClick={handleLinkClick}
           />
         </div>
 
@@ -79,6 +95,7 @@ export default function DashboardSidebar() {
                 icon={<Settings size={18} />}
                 label="Lab Configuration"
                 active={pathname === "/dashboard/protocols"}
+                onClick={handleLinkClick}
               />
 
               <NavItem
@@ -86,6 +103,7 @@ export default function DashboardSidebar() {
                 icon={<Users size={18} />}
                 label="Staff Management"
                 active={pathname === "/dashboard/staff"}
+                onClick={handleLinkClick}
               />
 
               <NavItem
@@ -93,23 +111,25 @@ export default function DashboardSidebar() {
                 icon={<Shield size={18} />}
                 label="Audit Logs"
                 active={pathname === "/dashboard/ledger"}
+                onClick={handleLinkClick}
               />
             </div>
           </>
         )}
       </nav>
-    </aside>
+    </div>
   );
 }
 
-function NavItem({ href, icon, label, active }) {
+function NavItem({ href, icon, label, active, onClick }) {
   return (
     <Link
       href={href}
+      onClick={onClick}
       className={`group flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-semibold transition-all duration-300 ${
         active
-          ? "bg-red-600 text-white shadow-red"
-          : "text-body hover:bg-red-50 hover:text-red-600"
+          ? "bg-primary text-white shadow-red"
+          : "text-body hover:bg-red-50 hover:text-primary"
       }`}
     >
       <div className="flex items-center gap-3">
