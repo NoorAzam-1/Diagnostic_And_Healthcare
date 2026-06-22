@@ -122,7 +122,7 @@ export default function TrustedBySection() {
           </p>
         </motion.div>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
+        <div className="mt-10 grid grid-cols-2 md:flex flex-wrap justify-center gap-4">
           {trustFeatures.map((item) => {
             const Icon = item.icon;
 
@@ -182,7 +182,7 @@ export default function TrustedBySection() {
           })}
         </div>
 
-        <div className="mt-12 flex flex-wrap justify-center gap-3">
+        <div className="mt-12 grid grid-cols-2 md:flex flex-wrap justify-center gap-3">
           {featurePills.map((item) => (
             <motion.div
               key={item}

@@ -99,7 +99,7 @@ export default function HowItWorksSection() {
           </p>
         </motion.div>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
+        <div className="mt-10 grid grid-cols-2 md:flex flex-wrap justify-center gap-4">
           {highlights.map((item) => {
             const Icon = item.icon;
 
