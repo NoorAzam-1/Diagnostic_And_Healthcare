@@ -29,7 +29,7 @@ export default function DashboardFooter() {
           </span>
 
           <span className="flex items-center gap-1">
-            Powered by HERAI ONE
+            Powered by HARAI ONE
             <HeartPulse size={12} className="text-red-600" />
           </span>
         </div>
