@@ -48,7 +48,7 @@ export default function DynamicLabConfigurationSection() {
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="text-center"
         >
           <span className="inline-flex rounded-full border border-red-200 bg-red-50 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-red-700">
@@ -74,7 +74,7 @@ export default function DynamicLabConfigurationSection() {
           <motion.div
             initial={{ opacity: 0, x: -25 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="lg:col-span-5"
           >
             <div className="rounded-[36px] border border-border bg-white p-5 shadow-sm">
@@ -139,7 +139,7 @@ export default function DynamicLabConfigurationSection() {
           <motion.div
             initial={{ opacity: 0, x: 25 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="lg:col-span-7"
           >
             <div className="rounded-[36px] border border-border bg-white shadow-sm overflow-hidden">
