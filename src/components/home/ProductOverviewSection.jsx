@@ -74,7 +74,7 @@ export default function ProductOverviewSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6 }}
           className="text-center"
         >
@@ -105,7 +105,7 @@ export default function ProductOverviewSection() {
                 key={feature.title}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{
                   duration: 0.5,
                   delay: index * 0.08,
