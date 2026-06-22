@@ -100,7 +100,7 @@ export default function TrustedBySection() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.4 }}
           transition={{ duration: 0.7 }}
           className="text-center"
         >
@@ -147,7 +147,7 @@ export default function TrustedBySection() {
                 key={item.label}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{
                   duration: 0.5,
                   delay: index * 0.1,
