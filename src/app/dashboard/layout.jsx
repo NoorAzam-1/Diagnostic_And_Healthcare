@@ -1,27 +1,32 @@
-"use client";
-import { useApp } from "@/context/AppContext";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
 import DashboardFooter from "@/components/dashboard/DashboardFooter";
 
 export default function DashboardLayout({ children }) {
-  const { isDarkMode } = useApp();
-
   return (
-    <div className={`${isDarkMode ? "dark" : ""}`}>
-      <div className="h-screen font-sans antialiased flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 overflow-hidden px-4">
+    <div className="min-h-screen bg-background text-heading">
+      <div className="flex min-h-screen flex-col">
         <DashboardHeader />
 
-        <div className="flex-1 flex overflow-hidden w-full mx-auto gap-2 max-w-7xl">
-          <div className="hidden md:block w-64 shrink-0 py-4 overflow-y-auto h-full ">
-            <DashboardSidebar />
-          </div>
-          <div className="flex-1 py-4 h-full flex flex-col overflow-hidden">
-            <main className="flex-1 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm overflow-y-auto relative flex flex-col min-h-0">
-              <div className="absolute top-0 left-0 w-full h-32 bg-linear-to-b from-slate-50 to-transparent dark:from-slate-800/10 dark:to-transparent pointer-events-none z-20" />
-              <div className="relative z-10 flex-1 ">{children}</div>
-              <div className="mt-auto pt-6 border-t border-slate-100 dark:border-slate-800/50">
-                <DashboardFooter />
+        <div className="container-custom flex flex-1 gap-4 py-4">
+          <aside className="hidden md:block w-72 shrink-0">
+            <div className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto pr-1">
+              <DashboardSidebar />
+            </div>
+          </aside>
+
+          <div className="flex min-w-0 flex-1 flex-col">
+            <main className="flex-1 overflow-hidden rounded-[32px] border border-border bg-white shadow-sm">
+              <div className="relative flex h-full flex-col">
+                <div className="pointer-events-none absolute left-0 top-0 h-24 w-full bg-linear-to-b from-red-50/60 to-transparent" />
+
+                <div className="relative z-10 flex-1 overflow-y-auto">
+                  {children}
+                </div>
+
+                <div className="border-t border-border">
+                  <DashboardFooter />
+                </div>
               </div>
             </main>
           </div>
