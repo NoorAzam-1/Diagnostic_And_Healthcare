@@ -25,35 +25,33 @@ export function PatientRecords() {
     patients.find((p) => p.id === inspectedPatientId) || patients[0];
 
   return (
-    <div className="p-6 space-y-6 flex-1 flex flex-col justify-between h-full overflow-hidden">
-      <div className="space-y-4 shrink-0">
-        <div className="border-b border-border pb-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div>
-            <h2 className="text-xl font-bold tracking-tight text-heading">
-              Patient Repository Vault
-            </h2>
-          </div>
-        </div>
-
-        <div className="p-3 rounded-lg border border-border bg-white shadow-sm transition-colors focus-within:border-primary flex items-center space-x-3">
-          <Search className="text-muted" size={18} />
-          <input
-            type="text"
-            placeholder="Search by Patient Code, Name, or Mobile..."
-            className="bg-transparent text-sm placeholder-muted focus:outline-none w-full text-heading"
-          />
+    <div className="p-6 space-y-6">
+      <div className="border-b border-border pb-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <h2 className="text-xl font-bold tracking-tight text-heading">
+            Patient Repository Vault
+          </h2>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 min-h-0 overflow-hidden">
-        <div className="lg:col-span-4 flex flex-col min-h-0">
-          <div className="flex items-center justify-between mb-3 shrink-0">
+      <div className="p-3 rounded-lg border border-border bg-white shadow-sm transition-colors focus-within:border-primary flex items-center space-x-3">
+        <Search className="text-muted" size={18} />
+        <input
+          type="text"
+          placeholder="Search by Patient Code, Name, or Mobile..."
+          className="bg-transparent text-sm placeholder-muted focus:outline-none w-full text-heading"
+        />
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div className="lg:col-span-4">
+          <div className="flex items-center justify-between mb-3">
             <span className="text-[10px] uppercase font-bold text-muted tracking-wider">
               Patient Ledger ({patients.length})
             </span>
           </div>
 
-          <div className="flex-1 overflow-y-auto space-y-2 pr-2 custom-scrollbar">
+          <div className="space-y-2 pr-2">
             {patients.map((p, index) => (
               <div
                 key={index}
@@ -61,7 +59,7 @@ export function PatientRecords() {
                   setInspectedPatientId(p.id);
                   triggerAlert(
                     `Decrypted clinical dossier for ${p.fullName}.`,
-                    "info",
+                    "info"
                   );
                 }}
                 className={`group p-3 rounded-xl border transition-all cursor-pointer flex items-center justify-between ${
@@ -70,7 +68,7 @@ export function PatientRecords() {
                     : "bg-white border-border hover:border-border-hover"
                 }`}
               >
-                <div className="flex items-center space-x-3 overflow-hidden">
+                <div className="flex items-center space-x-3">
                   <div
                     className={`shrink-0 w-8 h-8 flex items-center justify-center rounded text-xs font-bold font-mono ${
                       inspectedPatientId === p.id
@@ -80,9 +78,9 @@ export function PatientRecords() {
                   >
                     {p.fullName.charAt(0)}
                   </div>
-                  <div className="min-w-0">
+                  <div>
                     <span
-                      className={`font-bold block text-sm truncate ${
+                      className={`font-bold block text-sm ${
                         inspectedPatientId === p.id
                           ? "text-primary"
                           : "text-heading"
@@ -90,7 +88,7 @@ export function PatientRecords() {
                     >
                       {p.fullName}
                     </span>
-                    <span className="text-[10px] text-muted block font-medium truncate">
+                    <span className="text-[10px] text-muted block font-medium">
                       {p.gender} • {p.dob}
                     </span>
                   </div>
@@ -108,10 +106,10 @@ export function PatientRecords() {
           </div>
         </div>
 
-        <div className="lg:col-span-8 flex flex-col h-full rounded-2xl border border-border bg-white overflow-hidden">
+        <div className="lg:col-span-8 rounded-2xl border border-border">
           {activeInspectedPatient ? (
             <>
-              <div className="p-6 border-b border-border bg-surface shrink-0">
+              <div className="p-6 border-b border-border bg-surface">
                 <div className="flex items-start justify-between">
                   <div className="flex items-start gap-4">
                     <div className="p-3 bg-white rounded-lg border border-border shadow-sm">
@@ -134,7 +132,7 @@ export function PatientRecords() {
                       {activeInspectedPatient?.gender} •{" "}
                       {new Date().getFullYear() -
                         new Date(
-                          activeInspectedPatient?.dob,
+                          activeInspectedPatient?.dob
                         ).getFullYear()}{" "}
                       Years
                     </div>
@@ -142,9 +140,7 @@ export function PatientRecords() {
                 </div>
               </div>
 
-              {/* Detail Body */}
-              <div className="flex-1 overflow-y-auto p-6 space-y-8 custom-scrollbar">
-                {/* Allergy Warning */}
+              <div className="p-6 space-y-8">
                 {activeInspectedPatient.demographics?.knownAllergies && (
                   <div className="flex items-start gap-3 p-4 bg-rose-50 border border-rose-100 rounded-xl">
                     <AlertTriangle
@@ -162,7 +158,6 @@ export function PatientRecords() {
                   </div>
                 )}
 
-                {/* Quick Info Cards */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   <div className="p-3 rounded-lg bg-surface border border-border">
                     <div className="flex items-center gap-2 mb-1">
@@ -201,7 +196,6 @@ export function PatientRecords() {
                   </div>
                 </div>
 
-                {/* Clinical Diagnostics */}
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
                     <Activity size={16} className="text-primary" />
@@ -221,9 +215,7 @@ export function PatientRecords() {
                         </span>
                         <div className="space-y-2">
                           <div className="flex justify-between items-center border-b border-border pb-2">
-                            <span className="text-xs text-body">
-                              Fasting
-                            </span>
+                            <span className="text-xs text-body">Fasting</span>
                             <span className="font-mono font-bold text-heading">
                               {
                                 activeInspectedPatient.diagnostics.bloodGlucose
@@ -294,7 +286,6 @@ export function PatientRecords() {
                   </div>
                 </div>
 
-                {/* Address */}
                 <div className="space-y-3">
                   <h4 className="text-xs font-bold text-muted uppercase tracking-wider flex items-center gap-2">
                     <Home size={12} />
@@ -323,7 +314,6 @@ export function PatientRecords() {
                   </div>
                 </div>
 
-                {/* Custom Metrics */}
                 {activeInspectedPatient.customClinicalParameters &&
                   Object.keys(activeInspectedPatient.customClinicalParameters)
                     .length > 0 && (
@@ -334,7 +324,7 @@ export function PatientRecords() {
                       </h4>
                       <div className="grid grid-cols-2 gap-3">
                         {Object.entries(
-                          activeInspectedPatient.customClinicalParameters,
+                          activeInspectedPatient.customClinicalParameters
                         ).map(([name, val], i) => (
                           <div
                             key={i}
@@ -352,13 +342,10 @@ export function PatientRecords() {
                     </div>
                   )}
 
-                {/* Footer Info */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 text-xs text-body">
                   {activeInspectedPatient.demographics?.emailAddress && (
                     <div>
-                      <span className="block font-bold text-heading">
-                        Email
-                      </span>
+                      <span className="block font-bold text-heading">Email</span>
                       {activeInspectedPatient.demographics.emailAddress}
                     </div>
                   )}
@@ -374,7 +361,7 @@ export function PatientRecords() {
               </div>
             </>
           ) : (
-            <div className="h-full flex flex-col items-center justify-center text-muted p-10 text-center">
+            <div className="flex flex-col items-center justify-center text-muted p-10 text-center">
               <Search size={48} className="opacity-20 mb-4" />
               <p className="font-medium">Select a patient from the ledger</p>
               <p className="text-xs mt-1">to view their clinical dossier.</p>
