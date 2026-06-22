@@ -24,7 +24,7 @@ export default function Footer() {
               </div>
 
               <div>
-                <h3 className="text-xl font-black text-heading">HERAI ONE</h3>
+                <h3 className="text-xl font-black text-heading">HARAI ONE</h3>
 
                 <p className="text-xs uppercase tracking-wider text-muted">
                   Healthcare SaaS Platform
@@ -195,7 +195,7 @@ export default function Footer() {
         <div className="mt-4 sm:flex md:gap-6 md:mt-8 justify-end items-center">
           <div className="flex items-center gap-3 text-body">
             <Mail size={16} className="text-red-600" />
-            contact@heraione.com
+            contact@haraione.com
           </div>
 
           <div className="flex items-center gap-3 text-body">
@@ -211,7 +211,7 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col gap-4 border-t border-border pt-6 md:flex-row md:items-center md:justify-between">
           <p className="text-sm text-muted">
-            © {new Date().getFullYear()} HERAI ONE. All rights reserved.
+            © {new Date().getFullYear()} HARAI ONE. All rights reserved.
           </p>
 
           <div className="flex items-center gap-2 text-sm text-muted">
