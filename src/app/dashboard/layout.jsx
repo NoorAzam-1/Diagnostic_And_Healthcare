@@ -2,7 +2,7 @@
 import { useApp } from "@/context/AppContext";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
-import Footer from "@/components/common/Footer";
+import DashboardFooter from "@/components/dashboard/DashboardFooter";
 
 export default function DashboardLayout({ children }) {
   const { isDarkMode } = useApp();
@@ -21,7 +21,7 @@ export default function DashboardLayout({ children }) {
               <div className="absolute top-0 left-0 w-full h-32 bg-linear-to-b from-slate-50 to-transparent dark:from-slate-800/10 dark:to-transparent pointer-events-none z-20" />
               <div className="relative z-10 flex-1 ">{children}</div>
               <div className="mt-auto pt-6 border-t border-slate-100 dark:border-slate-800/50">
-                <Footer />
+                <DashboardFooter />
               </div>
             </main>
           </div>
