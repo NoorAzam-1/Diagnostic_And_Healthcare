@@ -1,7 +1,9 @@
 "use client";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useApp } from "@/context/AppContext";
+
 import {
   Layers,
   UserPlus,
@@ -9,75 +11,90 @@ import {
   Settings,
   Users,
   Shield,
+  ChevronRight,
 } from "lucide-react";
 
 export default function DashboardSidebar() {
   const pathname = usePathname();
+
   const { currentUser } = useApp();
+
   const isAdmin = currentUser?.role?.includes("Admin");
 
   return (
-    <aside className="w-64 shrink-0 flex flex-col space-y-6 h-[calc(100vh-99px)]">
-      <div className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm transition-colors">
-        <div className="flex items-center gap-2.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 relative">
-            <span className="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-50"></span>
-          </span>
-          <span className="text-sm font-black text-slate-800 dark:text-slate-100">
-            {currentUser?.name || "Active User"}
-          </span>
+    <aside className="flex h-full flex-col">
+      <div className="rounded-4xl border border-border bg-white p-5 shadow-sm">
+        <div className="flex items-center gap-3">
+          <div className="relative">
+            <span className="block h-3 w-3 rounded-full bg-green-500" />
+
+            <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-40" />
+          </div>
+
+          <div>
+            <h3 className="font-bold text-heading">
+              {currentUser?.name || "Healthcare User"}
+            </h3>
+
+            <p className="text-xs text-body">{currentUser?.role || "Staff"}</p>
+          </div>
         </div>
-        <p className="text-[11px] text-slate-500 dark:text-slate-400 pl-5 mt-0.5 font-medium">
-          {currentUser?.role || "Staff"}
-        </p>
       </div>
 
-      <nav className="space-y-1.5 flex-1">
-        <NavItem
-          href="/dashboard"
-          icon={<Layers size={16} />}
-          label="Overview"
-          active={pathname === "/dashboard"}
-        />
-        <NavItem
-          href="/dashboard/intake"
-          icon={<UserPlus size={16} />}
-          label="Add Patient"
-          active={pathname === "/dashboard/intake"}
-        />
-        <NavItem
-          href="/dashboard/records"
-          icon={<Database size={16} />}
-          label="Patient's Details"
-          active={pathname === "/dashboard/records"}
-        />
+      <nav className="mt-5 flex-1 rounded-[28px] border border-border bg-white p-3 shadow-sm">
+        <div className="space-y-1">
+          <NavItem
+            href="/dashboard"
+            icon={<Layers size={18} />}
+            label="Overview"
+            active={pathname === "/dashboard"}
+          />
+
+          <NavItem
+            href="/dashboard/intake"
+            icon={<UserPlus size={18} />}
+            label="Patient Registration"
+            active={pathname === "/dashboard/intake"}
+          />
+
+          <NavItem
+            href="/dashboard/records"
+            icon={<Database size={18} />}
+            label="Patient Records"
+            active={pathname === "/dashboard/records"}
+          />
+        </div>
 
         {isAdmin && (
           <>
-            <div className="pt-6 pb-2 mt-4">
-              <span className="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 tracking-widest px-4 block">
-                System Administration
-              </span>
+            <div className="my-5 border-t border-border pt-5">
+              <p className="px-3 text-[10px] font-bold uppercase tracking-[0.2em] text-muted">
+                Administration
+              </p>
             </div>
 
-            <NavItem
-              href="/dashboard/protocols"
-              icon={<Settings size={16} />}
-              label="Protocols Config"
-              active={pathname === "/dashboard/protocols"}
-            />
-            <NavItem
-              href="/dashboard/staff"
-              icon={<Users size={16} />}
-              label="Staff Management"
-              active={pathname === "/dashboard/staff"}
-            />
-            <NavItem
-              href="/dashboard/ledger"
-              icon={<Shield size={16} />}
-              label="Audit Ledger"
-              active={pathname === "/dashboard/ledger"}
-            />
+            <div className="space-y-1">
+              <NavItem
+                href="/dashboard/protocols"
+                icon={<Settings size={18} />}
+                label="Lab Configuration"
+                active={pathname === "/dashboard/protocols"}
+              />
+
+              <NavItem
+                href="/dashboard/staff"
+                icon={<Users size={18} />}
+                label="Staff Management"
+                active={pathname === "/dashboard/staff"}
+              />
+
+              <NavItem
+                href="/dashboard/ledger"
+                icon={<Shield size={18} />}
+                label="Audit Logs"
+                active={pathname === "/dashboard/ledger"}
+              />
+            </div>
           </>
         )}
       </nav>
@@ -89,14 +106,25 @@ function NavItem({ href, icon, label, active }) {
   return (
     <Link
       href={href}
-      className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 ${
+      className={`group flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-semibold transition-all duration-300 ${
         active
-          ? "bg-indigo-600 text-white shadow-md shadow-indigo-200 dark:shadow-none"
-          : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100"
+          ? "bg-red-600 text-white shadow-red"
+          : "text-body hover:bg-red-50 hover:text-red-600"
       }`}
     >
-      {icon}
-      <span>{label}</span>
+      <div className="flex items-center gap-3">
+        {icon}
+        <span>{label}</span>
+      </div>
+
+      <ChevronRight
+        size={14}
+        className={`transition-transform ${
+          active
+            ? "opacity-100"
+            : "opacity-0 group-hover:opacity-100 group-hover:translate-x-1"
+        }`}
+      />
     </Link>
   );
 }
