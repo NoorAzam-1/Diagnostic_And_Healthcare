@@ -27,3 +27,340 @@
 .container-custom {
   @apply w-full mx-auto px-4 md:px-6 xl:px-16 2xl:max-w-7xl;
 }
+
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.animated-border-wrapper {
+  --border-angle: 0deg;
+  position: relative;
+  border-radius: 36px;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--border-angle),
+    #e60012 0%,
+    #fca5a5 10%,
+    transparent 20%,
+    transparent 80%,
+    #e60012 100%
+  );
+  animation: spin-border 3s linear infinite;
+}
+
+.animated-border-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 38px;
+  background: conic-gradient(
+    from var(--border-angle),
+    rgba(230, 0, 18, 0.3) 0%,
+    transparent 15%,
+    transparent 85%,
+    rgba(230, 0, 18, 0.3) 100%
+  );
+  filter: blur(8px);
+  animation: spin-border 3s linear infinite;
+  z-index: -1;
+}
+
+@keyframes spin-border {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.6s ease-out both;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up-1 {
+  animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.animate-slide-up-2 {
+  animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+}
+
+.animate-slide-up-3 {
+  animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+}
+
+.animate-slide-up-4 {
+  animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-pill-in {
+  opacity: 0;
+  animation: pillIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pillIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.btn-shimmer-line {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(243, 117, 117, 0.945),
+    transparent
+  );
+  animation: shimmerLine 3s ease-in-out infinite 1s;
+}
+
+@keyframes shimmerLine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+.animate-card-in {
+  animation: cardIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-float-1 {
+  animation: float1 4s ease-in-out infinite 1.2s;
+}
+
+.animate-float-2 {
+  animation: float2 4.5s ease-in-out infinite 1.5s;
+}
+
+@keyframes float1 {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes float2 {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-1deg);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 6s ease-in-out infinite;
+}
+
+@keyframes pulseSlow {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+.animate-card-up {
+  opacity: 0;
+  animation: cardUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cardUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-icon-bounce {
+  animation: iconBounce 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both;
+}
+
+@keyframes iconBounce {
+  from {
+    opacity: 0;
+    transform: scale(0.3) rotate(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.scan-line-green {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(34, 197, 94, 0.15),
+    transparent
+  );
+  animation: scanLine 3s ease-in-out infinite;
+}
+
+@keyframes scanLine {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 120%;
+  }
+}
+
+.role-fill-red {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), transparent);
+  animation: roleFill 0.4s ease-out both;
+}
+
+.role-fill-sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.08), transparent);
+  animation: roleFill 0.4s ease-out both;
+}
+
+@keyframes roleFill {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.input-focus-line {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #e60012, transparent);
+  border-radius: 2px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-50%);
+}
+
+.input-glow:focus ~ .input-focus-line {
+  width: 80%;
+}
+
+.btn-shimmer-fill {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shimmerFill 2.5s ease-in-out infinite 0.5s;
+}
+
+@keyframes shimmerFill {
+  0% {
+    left: -80%;
+  }
+  100% {
+    left: 130%;
+  }
+}
