@@ -10,6 +10,8 @@ import StorageArchitectureSection from "./StorageArchitectureSection";
 import SecurityCompliance from "./SecurityCompliance";
 import ScrollToTopProgress from "../common/ScrollToTop";
 import Platform from "./Platform";
+import WhyChoose from "./WhyChoose";
+import CTASection from "./CTASection";
 
 export default function Home() {
   return (
@@ -24,6 +26,8 @@ export default function Home() {
       <StorageArchitectureSection />
       <SecurityCompliance />
       <Platform />
+      <WhyChoose />
+      <CTASection />
       <ScrollToTopProgress />
       <Footer />
     </>
