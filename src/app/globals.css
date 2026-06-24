@@ -25,7 +25,7 @@
 }
 
 .container-custom {
-  @apply w-full mx-auto px-4 md:px-6 xl:px-16 2xl:max-w-7xl;
+  @apply w-full mx-auto px-4 md:px-6 xl:px-16 2xl:max-w-[1440px];
 }
 
 @property --border-angle {
