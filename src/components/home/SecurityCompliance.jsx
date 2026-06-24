@@ -78,7 +78,7 @@ export default function SecurityCompliance() {
   return (
     <section
       id="security"
-      className="relative container-custom w-full py-6 md:py-8 lg:py-12 scroll-m-12"
+      className="relative container-custom w-full py-6 md:py-8 lg:py-12 scroll-m-18 md:scroll-m-12"
     >
       <div className="relative">
         <div className="flex flex-col items-between justify-center text-center">

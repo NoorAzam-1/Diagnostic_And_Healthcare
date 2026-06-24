@@ -27,7 +27,7 @@ export default function Platform() {
   return (
     <section
       id="platform"
-      className="relative overflow-hidden py-6 md:py-8 lg:py-12 scroll-m-12"
+      className="relative overflow-hidden py-6 md:py-8 lg:py-12 scroll-m-18 md:scroll-m-12"
     >
       <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-primary/5 blur-3xl animate-pulse-slow" />
 
