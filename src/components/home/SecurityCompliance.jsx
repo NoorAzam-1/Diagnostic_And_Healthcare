@@ -95,7 +95,7 @@ export default function SecurityCompliance() {
           </h2>
 
           <p className="mt-5 w-full mx-auto max-w-6xl text-base leading-7 text-body sm:mt-6 sm:text-lg sm:leading-relaxed animate-slide-up-2">
-            HERAI ONE follows modern security practices and healthcare
+            HARAI ONE follows modern security practices and healthcare
             compliance standards to protect patient records, diagnostic data,
             and operational workflows across every tenant.
           </p>
