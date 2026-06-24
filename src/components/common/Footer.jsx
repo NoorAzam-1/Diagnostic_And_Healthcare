@@ -11,11 +11,11 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="relative container-custom overflow-hidden border-t border-border bg-white">
+    <footer className="relative  overflow-hidden border-t border-border">
       <div className="absolute top-0 left-0 h-[300px] w-[300px] rounded-full bg-red-100 blur-[120px]" />
       <div className="absolute bottom-0 right-0 h-[300px] w-[300px] rounded-full bg-sky-100 blur-[120px]" />
 
-      <div className=" relative z-10 py-10">
+      <div className="container-custom relative z-10 py-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 lg:grid-cols-12">
           <div className="col-span-2 md:col-span-4 lg:col-span-4">
             <div className="flex items-center gap-3">
