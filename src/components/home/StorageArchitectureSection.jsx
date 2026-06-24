@@ -33,8 +33,8 @@ const cloudFeatures = [
 export default function StorageArchitectureSection() {
   return (
     <section id="storage" className="relative container-custom overflow-hidden py-6 md:py-8 lg:py-12">
-      <div className="absolute top-0 right-0 h-[400px] w-[400px] rounded-full bg-red-100 blur-[140px]" />
-      <div className="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-sky-100 blur-[140px]" />
+      <div className="absolute top-0 left-0 h-[400px] w-[400px] rounded-full bg-red-100 blur-[140px]" />
+      <div className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-sky-100 blur-[140px]" />
 
       <div className=" relative z-10">
         <motion.div
