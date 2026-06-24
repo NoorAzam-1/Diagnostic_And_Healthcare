@@ -32,7 +32,7 @@ export default function DashboardLayout({ children }) {
         </aside>
 
         <div className="flex min-w-0 flex-1 flex-col min-h-0">
-          <main className="flex-1 overflow-hidden rounded-2xl border border-border bg-white shadow-sm">
+          <main className="flex-1 overflow-hidden rounded-xl border border-border bg-white shadow-sm">
             <div className="relative flex h-full flex-col">
               <div className="pointer-events-none absolute left-0 top-0 h-24 w-full bg-linear-to-b from-red-50/60 to-transparent" />
 
