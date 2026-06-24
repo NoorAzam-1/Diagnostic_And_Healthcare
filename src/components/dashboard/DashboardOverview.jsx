@@ -62,7 +62,7 @@ export function DashboardOverview() {
           <div className="p-4 rounded-xl border bg-surface border-border flex flex-col h-full">
             <div className="flex items-center justify-between">
               <span className="text-[10px] font-bold text-muted uppercase tracking-widest">Patient Records</span>
-              <UserPlus size={14} className="text-primary" />
+              <UserPlus className="text-primary" />
             </div>
             <div className="mt-3 space-y-2.5 flex-1 flex flex-col justify-center">
               <div className="text-2xl font-black text-heading">{totalPatients} <span className="text-xs font-normal text-muted">Total</span></div>
@@ -87,7 +87,7 @@ export function DashboardOverview() {
           <div className="p-4 rounded-xl border bg-surface border-border flex flex-col h-full">
             <div className="flex items-center justify-between">
               <span className="text-[10px] font-bold text-muted uppercase tracking-widest">Staff Strength</span>
-              <Users size={14} className="text-primary" />
+              <Users className="text-primary" />
             </div>
             <div className="mt-3 space-y-2.5 flex-1 flex flex-col justify-center">
               <div className="text-2xl font-black text-heading">{totalStaff} <span className="text-xs font-normal text-muted">Total</span></div>
@@ -112,7 +112,7 @@ export function DashboardOverview() {
           <div className="p-4 rounded-xl border bg-surface border-border flex flex-col h-full">
             <div className="flex items-center justify-between">
               <span className="text-[10px] font-bold text-muted uppercase tracking-widest">Revenue</span>
-              <IndianRupee size={14} className="text-success" />
+              <IndianRupee className="text-success" />
             </div>
             <div className="mt-3 space-y-2.5 flex-1 flex flex-col justify-center">
               <div className="text-2xl font-black text-heading">{formatCurrency(revenueAll)} <span className="text-xs font-normal text-muted">Total</span></div>
@@ -137,7 +137,7 @@ export function DashboardOverview() {
           <div className="p-4 rounded-xl border bg-surface border-border flex flex-col h-full">
             <div className="flex items-center justify-between">
               <span className="text-[10px] font-bold text-muted uppercase tracking-widest">Diagnostics</span>
-              <FlaskConical size={14} className="text-primary" />
+              <FlaskConical className="text-primary" />
             </div>
             <div className="mt-3 space-y-2.5 flex-1 flex flex-col justify-center">
               <div className="text-2xl font-black text-heading">{testsAll} <span className="text-xs font-normal text-muted">Total</span></div>
