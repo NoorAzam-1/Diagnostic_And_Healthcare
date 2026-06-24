@@ -7,6 +7,7 @@ import HowItWorksSection from "./HowItsWorkSection";
 import RoleAccessSection from "./RoleAccessSection";
 import DynamicLabConfigurationSection from "./DynamicLabConfigurationSection";
 import StorageArchitectureSection from "./StorageArchitectureSection";
+import SecurityCompliance from "./SecurityCompliance";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <RoleAccessSection />
       <DynamicLabConfigurationSection />
       <StorageArchitectureSection />
+      <SecurityCompliance />
       <Footer />
     </>
   );
