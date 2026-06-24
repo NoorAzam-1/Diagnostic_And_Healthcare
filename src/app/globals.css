@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+
+
 @theme {
   --color-primary: #e60012; /* Medical Red */
   --color-primary-hover: #c40010; /* Dark Medical Red */
@@ -365,4 +367,28 @@
   100% {
     left: 130%;
   }
+}
+
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 1px;
+  height: 4px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-hover);
 }
