@@ -8,7 +8,7 @@ export default function DashboardLayout({ children }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="h-screen bg-background text-heading flex flex-col overflow-hidden">
+    <div className="h-screen bg-linear-to-r from-[#f8eded8f] via-white to-[#edf5ea8a] text-heading flex flex-col overflow-hidden">
       <DashboardHeader onMenuToggle={() => setMobileMenuOpen(true)} />
 
       {mobileMenuOpen && (
