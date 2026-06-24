@@ -9,6 +9,7 @@ import DynamicLabConfigurationSection from "./DynamicLabConfigurationSection";
 import StorageArchitectureSection from "./StorageArchitectureSection";
 import SecurityCompliance from "./SecurityCompliance";
 import ScrollToTopProgress from "../common/ScrollToTop";
+import Platform from "./Platform";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <DynamicLabConfigurationSection />
       <StorageArchitectureSection />
       <SecurityCompliance />
+      <Platform />
       <ScrollToTopProgress />
       <Footer />
     </>
