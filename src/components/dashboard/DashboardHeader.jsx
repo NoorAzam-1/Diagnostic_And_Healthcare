@@ -24,7 +24,7 @@ export default function DashboardHeader({ onMenuToggle }) {
 
   return (
     <header className="sticky top-0 z-30 border-b border-border bg-white/90 backdrop-blur-xl">
-      <div className="w-full mx-auto max-w-[1560px]">
+      <div className="w-full mx-auto max-w-[1560px] px-4 md:px-6 lg:px-12">
         <div className="flex items-center justify-between py-3 lg:py-4 gap-3">
           <div className="flex items-center gap-3 min-w-0">
             <button 
