@@ -66,7 +66,7 @@ const features = [
 
 export default function ProductOverviewSection() {
   return (
-    <section id="features" className="relative container-custom scroll-m-12 overflow-hidden py-6 md:py-8 lg:py-12">
+    <section id="features" className="relative container-custom scroll-m-18 md:scroll-m-12 overflow-hidden py-6 md:py-8 lg:py-12">
       <div className="absolute top-20 left-20 h-[400px] w-[400px] rounded-full bg-red-100 blur-[140px]" />
       <div className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-sky-100 blur-[140px]" />
 
