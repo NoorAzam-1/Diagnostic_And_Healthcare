@@ -22,10 +22,12 @@
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.08);
   --shadow-red: 0 12px 32px rgba(230, 0, 18, 0.18);
+
+  --breakpoint-3xl: 1560px;
 }
 
 .container-custom {
-  @apply w-full mx-auto px-4 md:px-6 xl:px-8 2xl:max-w-[1440px];
+  @apply w-full mx-auto px-4 md:px-6 xl:px-8 3xl:max-w-[1440px];
 }
 
 @property --border-angle {

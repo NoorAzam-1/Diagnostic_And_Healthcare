@@ -26,7 +26,7 @@ export default function DashboardLayout({ children }) {
         <DashboardSidebar isMobile onClose={() => setMobileMenuOpen(false)} />
       </aside>
 
-      <div className="flex flex-1 gap-4 py-4 min-h-0 w-full max-w-[1560px] mx-auto px-4 md:px-6 lg:px-12">
+      <div className="flex flex-1 gap-4 py-4 min-h-0 w-full mx-auto px-4 md:px-6 lg:px-12">
         <aside className="hidden md:block w-72 shrink-0 overflow-y-auto pr-1">
           <DashboardSidebar />
         </aside>
