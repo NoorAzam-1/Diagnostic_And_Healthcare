@@ -55,7 +55,7 @@ export default function FAQs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mx-auto mb-16 max-w-3xl text-center"
+          className="mx-auto mb-16  text-center"
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-5 py-2 text-xs font-semibold tracking-wider text-emerald-700 uppercase shadow-sm">
             <span className="h-2 w-2 rounded-full bg-emerald-600 animate-pulse" />
@@ -69,7 +69,7 @@ export default function FAQs() {
             </span>
           </h2>
 
-          <p className="mt-6 text-lg leading-8 text-body">
+          <p className="mt-6 text-lg leading-8 text-body max-w-5xl mx-auto">
             Find quick answers to common questions about our platform, security,
             features, and implementation process.
           </p>
@@ -94,7 +94,7 @@ export default function FAQs() {
                 }`}
               >
                 {isOpen && (
-                  <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-emerald-600 to-teal-500" />
+                  <div className="absolute left-0 top-0 h-full w-1 bg-linear-to-b from-emerald-600 to-teal-500" />
                 )}
 
                 <div className="flex items-center justify-between gap-4">
