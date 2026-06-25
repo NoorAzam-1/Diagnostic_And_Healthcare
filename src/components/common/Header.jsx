@@ -172,7 +172,7 @@ export const Header = () => {
     <header className="fixed inset-x-0 top-0 z-50 mx-auto w-full border-b border-border bg-surface/80 backdrop-blur-xl">
       <div className="container-custom">
         <div className="flex h-20 items-center justify-between">
-          <Link href="/" className="flex shrink-0 items-center gap-3">
+          <Link href="/" className="flex shrink-0 items-center gap-1">
             <Image
               src="/brandLogo.jpeg"
               alt="HARAI ONE"
@@ -182,10 +182,10 @@ export const Header = () => {
               className="h-18 w-auto object-contain"
             />
             <div className="hidden sm:block leading-tight">
-              <span className="block text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
+              <span className="block text-[11px] font-extrabold uppercase tracking-[0.32em] text-primary">
                 HARAI
               </span>
-              <span className="block text-lg font-bold text-heading">
+              <span className="block text-lg font-semibold text-heading">
                 Innovations Pvt. Ltd.
               </span>
             </div>
