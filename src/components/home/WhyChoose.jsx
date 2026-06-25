@@ -113,10 +113,10 @@ export default function WhyChooseHaraiOne() {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative mt-8 sm:mt-0">
             <div className="absolute left-7 top-0 hidden h-full w-px bg-linear-to-b from-primary/40 via-border to-transparent md:block" />
 
-            <div className="space-y-3 md:space-y-4">
+            <div className="space-y-5 md:space-y-6">
               {advantages.map((item, index) => {
                 const Icon = item.icon;
 
@@ -138,12 +138,12 @@ export default function WhyChooseHaraiOne() {
                           0{index + 1}
                         </span>
 
-                        <h3 className="text-xl font-bold text-heading md:text-2xl">
+                        <h3 className="text-lg sm:text-xl font-bold text-heading md:text-2xl">
                           {item.title}
                         </h3>
                       </div>
 
-                      <p className="max-w-2xl text-body leading-5">
+                      <p className="max-w-2xl text-sm md:text-lg text-body leading-5">
                         {item.description}
                       </p>
                     </div>
