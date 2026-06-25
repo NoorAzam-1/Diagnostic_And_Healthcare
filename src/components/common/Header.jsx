@@ -202,7 +202,7 @@ export const Header = () => {
                     onMouseEnter={() => setActiveDropdown(item.name)}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    <button className="group flex items-center gap-1.5 rounded-xl px-4 py-2.5 text-sm font-medium text-body transition-colors hover:bg-emerald-50 hover:text-emerald-700 cursor-pointer">
+                    <button className="group flex items-center gap-1.5 rounded-xl px-2 py-2.5 text-sm font-medium text-body transition-colors hover:bg-emerald-50 hover:text-emerald-700 cursor-pointer uppercase">
                       {item.name}
                       <ChevronDown className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180" />
                     </button>
@@ -221,7 +221,7 @@ export const Header = () => {
                             <Link
                               key={link.name}
                               href={link.href}
-                              className="flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-emerald-50"
+                              className="flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-emerald-50 uppercase"
                             >
                               <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600 transition-colors group-hover:bg-emerald-100">
                                 <LinkIcon className="h-4 w-4" />
@@ -247,7 +247,7 @@ export const Header = () => {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="rounded-xl px-4 py-2.5 text-sm font-medium text-body transition-colors hover:bg-emerald-50 hover:text-emerald-700"
+                  className="rounded-xl px-2 py-2.5 text-sm font-medium text-body transition-colors hover:bg-emerald-50 hover:text-emerald-700 uppercase"
                 >
                   {item.name}
                 </Link>
