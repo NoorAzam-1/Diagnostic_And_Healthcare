@@ -62,7 +62,7 @@ export default function Pricing() {
   const [isAnnual, setIsAnnual] = useState(false);
 
   return (
-    <section className="relative overflow-hidden py-6 md:py-8 lg:py-12 scroll-m-18 md:scroll-m-12">
+    <section id="pricing" className="relative overflow-hidden py-6 md:py-8 lg:py-12 scroll-m-18 md:scroll-m-12">
       <div className="absolute right-0 top-20 h-[500px] w-[500px] rounded-full bg-emerald-100/50 blur-[160px] animate-pulse-slow" />
       <div className="absolute left-0 bottom-20 h-[400px] w-[400px] rounded-full bg-teal-100/40 blur-[150px] animate-pulse-slow" />
 
