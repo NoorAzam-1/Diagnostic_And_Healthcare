@@ -2,61 +2,44 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import {
-  Activity,
-  ChevronRight,
-  CalendarDays,
-  Menu,
-  X,
-} from "lucide-react";
+import { ChevronRight, CalendarDays, Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const navLinks = [
-  {
-    name: "Features",
-    href: "#features",
-  },
-  {
-    name: "Workflow",
-    href: "#workflow",
-  },
-  {
-    name: "Security",
-    href: "#security",
-  },
-  {
-    name: "Platform",
-    href: "#platform",
-  },
-  {
-    name: "Pricing",
-    href: "#pricing",
-  },
+  { name: "Features", href: "#features" },
+  { name: "Workflow", href: "#workflow" },
+  { name: "Security", href: "#security" },
+  { name: "Platform", href: "#platform" },
+  { name: "Pricing", href: "#pricing" },
 ];
 
 export const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="fixed w-full mx-auto inset-x-0 top-0 z-50 border-b border-border bg-white/90 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 mx-auto w-full border-b border-border bg-white/90 backdrop-blur-xl">
       <div className="container-custom">
         <div className="flex h-20 items-center justify-between">
           <Link href="/" className="flex shrink-0 items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary text-white shadow-[0_10px_25px_rgba(230,0,18,0.18)]">
-              <Activity size={22} />
-            </div>
-
-            <div>
-              <h1 className="text-lg font-black leading-none text-heading">
-                HARAI ONE
-              </h1>
-
-              <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted">
-                Healthcare SaaS Platform
-              </p>
+            <Image
+              src="/brandLogo.jpeg"
+              alt="HARAI ONE"
+              width={180}
+              height={55}
+              priority
+              className="h-18 w-auto object-contain"
+            />
+            <div className="hidden sm:block leading-tight">
+              <span className="block text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
+                HARAI
+              </span>
+              <span className="block text-lg font-bold text-heading">
+                Innovations Pvt. Ltd.
+              </span>
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center xl:gap-8 lg:gap-4">
+          <nav className="hidden items-center lg:flex lg:gap-4 xl:gap-8">
             {navLinks.map((item) => (
               <Link
                 key={item.name}
@@ -68,10 +51,10 @@ export const Header = () => {
             ))}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden items-center gap-3 lg:flex">
             <Link
               href="/demo"
-              className="flex items-center gap-2 rounded-2xl border border-border bg-white px-4 py-2.5 text-sm font-medium text-heading shadow-sm transition-all hover:border-red-200 hover:bg-red-50"
+              className="flex items-center gap-2 rounded-2xl border border-border bg-white px-4 py-2.5 text-sm font-medium text-heading shadow-sm transition-all hover:border-border-hover hover:bg-surface-hover"
             >
               <CalendarDays size={16} />
               Book Demo
@@ -79,7 +62,7 @@ export const Header = () => {
 
             <Link
               href="#login-anchor"
-              className="flex items-center gap-2 rounded-2xl bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-[0_12px_32px_rgba(230,0,18,0.18)] transition-all duration-300 hover:-translate-y-0.5"
+              className="flex items-center gap-2 rounded-2xl bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-red transition-all duration-300 hover:-translate-y-0.5"
             >
               Sign In
               <ChevronRight size={16} />
@@ -87,7 +70,7 @@ export const Header = () => {
           </div>
 
           <button
-            onClick={() => setMobileOpen(!mobileOpen)}
+            onClick={() => setMobileOpen((value) => !value)}
             className="flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-white lg:hidden"
           >
             {mobileOpen ? <X size={20} /> : <Menu size={20} />}
