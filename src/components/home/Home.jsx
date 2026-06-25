@@ -2,11 +2,11 @@ import { Header } from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import HeroSection from "./HeroSection";
 import TrustedBySection from "./TrustedBySection";
-import ProductOverviewSection from "./ProductOverviewSection";
-import HowItWorksSection from "./HowItsWorkSection";
+import ProductOverview from "./ProductOverview";
+import HowItWorks from "./HowItsWorks";
 import RoleAccessSection from "./RoleAccessSection";
-import DynamicLabConfigurationSection from "./DynamicLabConfigurationSection";
-import StorageArchitectureSection from "./StorageArchitectureSection";
+import DynamicLabConfiguration from "./DynamicLabConfiguration";
+import StorageArchitecture from "./StorageArchitecture";
 import SecurityCompliance from "./SecurityCompliance";
 import ScrollToTopProgress from "../common/ScrollToTop";
 import Platform from "./Platform";
@@ -22,14 +22,14 @@ export default function Home() {
       <Header />
       <HeroSection />
       <TrustedBySection />
-      <ProductOverviewSection />
-      <HowItWorksSection />
-      <RoleAccessSection />
-      <DynamicLabConfigurationSection />
-      <StorageArchitectureSection />
-      <SecurityCompliance />
-      <Platform />
+      <ProductOverview />
+      <HowItWorks />
       <WhyChoose />
+      <Platform />
+      <RoleAccessSection />
+      <DynamicLabConfiguration />
+      <StorageArchitecture />
+      <SecurityCompliance />
       <Testimonials />
       <Pricing />
       <FAQs />
