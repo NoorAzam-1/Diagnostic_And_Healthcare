@@ -12,6 +12,9 @@ import ScrollToTopProgress from "../common/ScrollToTop";
 import Platform from "./Platform";
 import WhyChoose from "./WhyChoose";
 import CTASection from "./CTASection";
+import Testimonials from "./Testimonials";
+import Pricing from "./Pricing";
+import FAQs from "./FAQs";
 
 export default function Home() {
   return (
@@ -27,6 +30,9 @@ export default function Home() {
       <SecurityCompliance />
       <Platform />
       <WhyChoose />
+      <Testimonials />
+      <Pricing />
+      <FAQs />
       <CTASection />
       <ScrollToTopProgress />
       <Footer />
