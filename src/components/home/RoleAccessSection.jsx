@@ -81,7 +81,7 @@ const staffFeatures = [
 
 export default function RoleAccessSection() {
   return (
-    <section id="roles" className="relative container-custom overflow-hidden py-6 md:py-8 lg:py-12">
+    <section id="roles" className="relative container-custom overflow-hidden  py-6 md:py-8 lg:py-12 scroll-m-18 md:scroll-m-12">
       <div className="absolute top-20 left-20 h-[400px] w-[400px] rounded-full bg-red-100 blur-[140px]" />
 
       <div className=" relative z-10">
