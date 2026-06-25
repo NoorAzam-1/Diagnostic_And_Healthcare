@@ -2,7 +2,7 @@
 import { AuditLedger } from "@/components/logs/AuditLedger";
 import { useApp } from "@/context/AppContext";
 
-export default function page() {
+export default function Page() {
   const {
     isDarkMode,
     clinicalTemplateVer,
