@@ -1,35 +1,87 @@
 @import "tailwindcss";
 
-
-
 @theme {
-  --color-primary: #e60012; /* Medical Red */
-  --color-primary-hover: #c40010; /* Dark Medical Red */
+  --color-primary: #0f766e;
+  --color-primary-hover: #115e59;
 
-  --color-success: #16a34a; /* Medical Green */
-  --color-info: #0284c7; /* Healthcare Blue */
+  --color-red-50: #f0fdfa;
+  --color-red-100: #ccfbf1;
+  --color-red-200: #99f6e4;
+  --color-red-300: #5eead4;
+  --color-red-400: #2dd4bf;
+  --color-red-500: #14b8a6;
+  --color-red-600: #0f766e;
+  --color-red-700: #115e59;
+  --color-red-800: #134e4a;
+  --color-red-900: #042f2e;
+  --color-red-950: #022c22;
 
-  --color-background: #ffffff; /* Website Background */
-  --color-surface: #fafafa; /* Cards */
-  --color-surface-hover: #f5f5f5; /* Card Hover */
+  --color-rose-50: #ecfdf5;
+  --color-rose-100: #d1fae5;
+  --color-rose-200: #a7f3d0;
+  --color-rose-300: #6ee7b7;
+  --color-rose-400: #34d399;
+  --color-rose-500: #10b981;
+  --color-rose-600: #059669;
+  --color-rose-700: #047857;
+  --color-rose-800: #065f46;
+  --color-rose-900: #064e3b;
+  --color-rose-950: #022c22;
 
-  --color-heading: #111111; /* Rich Black */
-  --color-body: #4b5563; /* Paragraph */
-  --color-muted: #9ca3af; /* Meta Text */
+  --color-sky-50: #ecfdf5;
+  --color-sky-100: #d1fae5;
+  --color-sky-200: #a7f3d0;
+  --color-sky-300: #6ee7b7;
+  --color-sky-400: #34d399;
+  --color-sky-500: #14b8a6;
+  --color-sky-600: #0f766e;
+  --color-sky-700: #115e59;
+  --color-sky-800: #134e4a;
+  --color-sky-900: #042f2e;
+  --color-sky-950: #022c22;
 
-  --color-border: #e5e7eb; /* Soft Border */
-  --color-border-hover: #d1d5db; /* Hover Border */
+  --color-success: #059669;
+  --color-info: #0ea5a4;
 
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.08);
-  --shadow-red: 0 12px 32px rgba(230, 0, 18, 0.18);
+  --color-background: #f7fbfa; /* Website Background */
+  --color-surface: #ffffff; /* Cards */
+  --color-surface-hover: #ecfdf5; /* Card Hover */
+
+  --color-heading: #0f172a; /* Rich Black */
+  --color-body: #475569; /* Paragraph */
+  --color-muted: #64748b; /* Meta Text */
+
+  --color-border: #d8e7e3; /* Soft Border */
+  --color-border-hover: #bfdad2; /* Hover Border */
+
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 16px 48px rgba(15, 23, 42, 0.08);
+  --shadow-red: 0 12px 32px rgba(15, 118, 110, 0.18);
 
   --breakpoint-3xl: 1560px;
 }
 
 .container-custom {
-  @apply w-full mx-auto px-4 md:px-6 xl:px-8 3xl:max-w-[1440px];
+  @apply w-full mx-auto px-4 md:px-6 xl:px-8 3xl:max-w-360;
+}
+
+html,
+body {
+  background: var(--color-background);
+  color: var(--color-heading);
+}
+
+body {
+  background-image:
+    radial-gradient(circle at top left, rgba(15, 118, 110, 0.1), transparent 28%),
+    radial-gradient(circle at top right, rgba(20, 184, 166, 0.08), transparent 24%),
+    linear-gradient(180deg, #f7fbfa 0%, #ffffff 44%, #f7fbfa 100%);
+}
+
+::selection {
+  background: rgba(15, 118, 110, 0.18);
+  color: #0f172a;
 }
 
 @property --border-angle {
@@ -45,11 +97,11 @@
   padding: 2px;
   background: conic-gradient(
     from var(--border-angle),
-    #e60012 0%,
-    #fca5a5 10%,
+    #0f766e 0%,
+    #99f6e4 10%,
     transparent 20%,
     transparent 80%,
-    #e60012 100%
+    #0f766e 100%
   );
   animation: spin-border 3s linear infinite;
 }
@@ -61,10 +113,10 @@
   border-radius: 38px;
   background: conic-gradient(
     from var(--border-angle),
-    rgba(230, 0, 18, 0.3) 0%,
+    rgba(15, 118, 110, 0.28) 0%,
     transparent 15%,
     transparent 85%,
-    rgba(230, 0, 18, 0.3) 100%
+    rgba(15, 118, 110, 0.28) 100%
   );
   filter: blur(8px);
   animation: spin-border 3s linear infinite;
@@ -144,7 +196,7 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(243, 117, 117, 0.945),
+    rgba(20, 184, 166, 0.35),
     transparent
   );
   animation: shimmerLine 3s ease-in-out infinite 1s;
@@ -292,14 +344,14 @@
 .role-fill-red {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), transparent);
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.08), transparent);
   animation: roleFill 0.4s ease-out both;
 }
 
 .role-fill-sky {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(14, 165, 233, 0.08), transparent);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), transparent);
   animation: roleFill 0.4s ease-out both;
 }
 
@@ -335,7 +387,7 @@
   left: 50%;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #e60012, transparent);
+  background: linear-gradient(90deg, transparent, #0f766e, transparent);
   border-radius: 2px;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   transform: translateX(-50%);
@@ -354,7 +406,7 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.2),
+    rgba(236, 253, 245, 0.28),
     transparent
   );
   animation: shimmerFill 2.5s ease-in-out infinite 0.5s;
@@ -368,7 +420,6 @@
     left: 130%;
   }
 }
-
 
 * {
   scrollbar-width: thin;
