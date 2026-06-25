@@ -158,7 +158,7 @@ const navLinks = [
     links: [
       { name: "About Us", href: "/about", desc: "Our mission & story", icon: Building2 },
       { name: "Contact", href: "/contact", desc: "Get in touch", icon: Phone },
-      { name: "Book a Demo", href: "/book-demo", desc: "See it in action", icon: Calendar },
+      // { name: "Book a Demo", href: "/book-demo", desc: "See it in action", icon: Calendar },
     ],
   },
 ];
