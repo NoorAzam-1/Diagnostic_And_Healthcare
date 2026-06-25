@@ -24,7 +24,7 @@ export default function Footer() {
                 alt="HARAI Innovations"
                 width={76}
                 height={76}
-                className="h-12 w-12 rounded-2xl object-cover shadow-md"
+                className="h-auto w-24 rounded-2xl object-cover shadow-md"
                 priority
               />
 
