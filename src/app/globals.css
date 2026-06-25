@@ -75,11 +75,9 @@ html,
 body {
   background: var(--color-background);
   color: var(--color-heading);
-  /* Global Body Font Set Kiya */
   font-family: var(--font-body); 
 }
 
-/* Global Heading Font Set Kiya */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
