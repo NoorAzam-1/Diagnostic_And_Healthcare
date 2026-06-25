@@ -75,7 +75,7 @@ export default function HeroSection() {
               ))}
             </div>
 
-            <div className="mt-10 flex flex-wrap gap-4 animate-slide-up-4">
+            <div className="mt-10 flex flex-wrap justify-center md:justify-start gap-4 animate-slide-up-4">
               <button className="group relative rounded-2xl bg-primary px-6 py-4 text-white font-semibold shadow-[0_12px_32px_rgba(15,118,110,0.22)] transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden">
                 <span className="relative z-10">Request Demo</span>
                 <span className="btn-shimmer-line" />
