@@ -72,11 +72,11 @@ export default function Platform() {
                   <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                   <div className="relative">
-                    <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-3xl bg-primary/10 text-primary transition-all duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+                    <div className="mb-6 flex mx-auto md:mx-0 h-16 w-16 items-center justify-center rounded-3xl bg-primary/10 text-primary transition-all duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
                       <Icon className="h-8 w-8" />
                     </div>
 
-                    <h3 className="text-2xl font-black text-heading">
+                    <h3 className="text-2xl font-black text-center md:text-left text-heading">
                       {platform.title}
                     </h3>
 
