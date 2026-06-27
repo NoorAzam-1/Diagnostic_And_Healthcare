@@ -20,7 +20,52 @@ export default function DashboardSidebar({ isMobile, onClose }) {
 
   const { currentUser } = useApp();
 
-  const isAdmin = currentUser?.role?.includes("Admin");
+  const isSuperAdmin = currentUser?.role?.includes("Super Admin");
+  const hasAdminAccess = currentUser?.role?.includes("Admin");
+
+  const primaryLinks = [
+    {
+      href: "/dashboard",
+      icon: <Layers size={18} />,
+      label: "Overview",
+    },
+    ...(!isSuperAdmin
+      ? [
+          {
+            href: "/dashboard/intake",
+            icon: <UserPlus size={18} />,
+            label: "Patient Registration",
+          },
+        ]
+      : []),
+    ...(!isSuperAdmin
+      ? [
+          {
+            href: "/dashboard/records",
+            icon: <Database size={18} />,
+            label: "Patient Records",
+          },
+        ]
+      : []),
+  ];
+
+  const privilegedLinks = [
+    {
+      href: "/dashboard/protocols",
+      icon: <Settings size={18} />,
+      label: isSuperAdmin ? "Global Lab Configuration" : "Lab Configuration",
+    },
+    {
+      href: "/dashboard/staff",
+      icon: <Users size={18} />,
+      label: isSuperAdmin ? "Facility Users & Plans" : "Staff Management",
+    },
+    {
+      href: "/dashboard/ledger",
+      icon: <Shield size={18} />,
+      label: isSuperAdmin ? "Network Audit Logs" : "Audit Logs",
+    },
+  ];
 
   const handleLinkClick = () => {
     if (isMobile && onClose) {
@@ -56,63 +101,37 @@ export default function DashboardSidebar({ isMobile, onClose }) {
 
       <nav className="mt-5 flex-1 rounded-2xl border border-border bg-white p-3 shadow-sm">
         <div className="space-y-1">
-          <NavItem
-            href="/dashboard"
-            icon={<Layers size={18} />}
-            label="Overview"
-            active={pathname === "/dashboard"}
-            onClick={handleLinkClick}
-          />
-
-          <NavItem
-            href="/dashboard/intake"
-            icon={<UserPlus size={18} />}
-            label="Patient Registration"
-            active={pathname === "/dashboard/intake"}
-            onClick={handleLinkClick}
-          />
-
-          <NavItem
-            href="/dashboard/records"
-            icon={<Database size={18} />}
-            label="Patient Records"
-            active={pathname === "/dashboard/records"}
-            onClick={handleLinkClick}
-          />
+          {primaryLinks.map((link) => (
+            <NavItem
+              key={link.href}
+              href={link.href}
+              icon={link.icon}
+              label={link.label}
+              active={pathname === link.href}
+              onClick={handleLinkClick}
+            />
+          ))}
         </div>
 
-        {isAdmin && (
+        {hasAdminAccess && (
           <>
             <div className="my-5 border-t border-border pt-5">
               <p className="px-3 text-[10px] font-bold uppercase tracking-[0.2em] text-muted">
-                Administration
+                {isSuperAdmin ? "Platform Control" : "Administration"}
               </p>
             </div>
 
             <div className="space-y-1">
-              <NavItem
-                href="/dashboard/protocols"
-                icon={<Settings size={18} />}
-                label="Lab Configuration"
-                active={pathname === "/dashboard/protocols"}
-                onClick={handleLinkClick}
-              />
-
-              <NavItem
-                href="/dashboard/staff"
-                icon={<Users size={18} />}
-                label="Staff Management"
-                active={pathname === "/dashboard/staff"}
-                onClick={handleLinkClick}
-              />
-
-              <NavItem
-                href="/dashboard/ledger"
-                icon={<Shield size={18} />}
-                label="Audit Logs"
-                active={pathname === "/dashboard/ledger"}
-                onClick={handleLinkClick}
-              />
+              {privilegedLinks.map((link) => (
+                <NavItem
+                  key={link.href}
+                  href={link.href}
+                  icon={link.icon}
+                  label={link.label}
+                  active={pathname === link.href}
+                  onClick={handleLinkClick}
+                />
+              ))}
             </div>
           </>
         )}
