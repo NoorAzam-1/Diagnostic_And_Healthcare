@@ -113,8 +113,8 @@ export default function WhyChooseHaraiOne() {
             </div>
           </div>
 
-          <div className="relative mt-8 sm:mt-0">
-            <div className="absolute left-7 top-0 hidden h-full w-px bg-linear-to-b from-primary/40 via-border to-transparent md:block" />
+          <div className="relative mt-8 sm:mt-0 shadow p-4 rounded-2xl">
+            <div className="absolute left-11 top-4 hidden h-full w-px bg-linear-to-b from-primary/40 via-border to-transparent md:block" />
 
             <div className="space-y-5 md:space-y-6">
               {advantages.map((item, index) => {
