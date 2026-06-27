@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import {
@@ -64,24 +65,39 @@ const pages = [
 ];
 
 export default function Testimonials() {
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
-  const totalPages = pages.length;
+  const [isMdUp, setIsMdUp] = useState(false);
+  const visibleCount = isMdUp ? 2 : 1;
+  const totalPages = testimonials.length;
 
   const paginate = (dir) => {
     setDirection(dir);
-    setCurrentPage((prev) => (prev + dir + totalPages) % totalPages);
+    setCurrentIndex((prev) => (prev + dir + totalPages) % totalPages);
   };
 
   const goTo = (index) => {
-    setDirection(index > currentPage ? 1 : -1);
-    setCurrentPage(index);
+    setDirection(index > currentIndex ? 1 : -1);
+    setCurrentIndex(index);
   };
 
   useEffect(() => {
-    const timer = setInterval(() => paginate(1), 5000);
+    const timer = setInterval(() => {
+      setDirection(1);
+      setCurrentIndex((prev) => (prev + 1) % totalPages);
+    }, 5000);
     return () => clearInterval(timer);
-  }, [currentPage]);
+  }, [totalPages]);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+
+    const updateMatch = () => setIsMdUp(mediaQuery.matches);
+    updateMatch();
+
+    mediaQuery.addEventListener("change", updateMatch);
+    return () => mediaQuery.removeEventListener("change", updateMatch);
+  }, []);
 
   const variants = {
     enter: (dir) => ({
@@ -107,12 +123,14 @@ export default function Testimonials() {
     }),
   };
 
-  const pair = pages[currentPage];
+  const visibleTestimonials = Array.from({ length: visibleCount }, (_, index) =>
+    testimonials[(currentIndex + index) % testimonials.length],
+  );
 
   return (
     <section className="relative overflow-hidden py-6 md:py-8 lg:py-12 scroll-m-18 md:scroll-m-12">
-      <div className="absolute left-10 top-10 h-[500px] w-[500px] rounded-full bg-emerald-100/60 blur-[160px] animate-pulse-slow" />
-      <div className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-teal-100/50 blur-[150px] animate-pulse-slow" />
+      <div className="absolute left-10 top-10 h-125 w-125 rounded-full bg-emerald-100/60 blur-[160px] animate-pulse-slow" />
+      <div className="absolute bottom-0 right-0 h-100 w-100 rounded-full bg-teal-100/50 blur-[150px] animate-pulse-slow" />
 
       <div className="container-custom relative z-10">
         <motion.div
@@ -145,7 +163,7 @@ export default function Testimonials() {
           <div className="overflow-hidden">
             <AnimatePresence custom={direction} mode="wait">
               <motion.div
-                key={currentPage}
+                key={`${currentIndex}-${visibleCount}`}
                 custom={direction}
                 variants={variants}
                 initial="enter"
@@ -154,7 +172,7 @@ export default function Testimonials() {
                 transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
                 className="grid grid-cols-1 md:grid-cols-2 gap-6"
               >
-                {pair.map((item, i) => (
+                {visibleTestimonials.map((item, i) => (
                   <motion.div
                     key={item.id}
                     custom={i}
@@ -183,9 +201,11 @@ export default function Testimonials() {
                     <div className="mt-7 flex items-center gap-4 border-t border-border pt-6">
                       <div className="relative shrink-0">
                         <div className="absolute -inset-0.5 rounded-full bg-linear-to-tr from-emerald-400/30 to-teal-300/30 blur-sm" />
-                        <img
+                        <Image
                           src={item.image}
                           alt={item.name}
+                          width={52}
+                          height={52}
                           className="relative h-13 w-13 rounded-full object-cover ring-3 ring-emerald-100"
                         />
                       </div>
@@ -220,12 +240,12 @@ export default function Testimonials() {
             </button>
 
             <div className="flex items-center gap-3">
-              {pages.map((_, i) => (
+              {testimonials.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => goTo(i)}
                   className={`h-2.5 rounded-full transition-all duration-500 cursor-pointer ${
-                    i === currentPage
+                    i === currentIndex
                       ? "w-8 bg-emerald-600"
                       : "w-2.5 bg-border hover:bg-emerald-200"
                   }`}
@@ -243,7 +263,7 @@ export default function Testimonials() {
 
           <div className="mt-6 text-center text-sm font-medium text-muted">
             <span className="text-emerald-700">
-              {String(currentPage + 1).padStart(2, "0")}
+              {String(currentIndex + 1).padStart(2, "0")}
             </span>
             <span className="mx-2">/</span>
             <span>{String(totalPages).padStart(2, "0")}</span>
