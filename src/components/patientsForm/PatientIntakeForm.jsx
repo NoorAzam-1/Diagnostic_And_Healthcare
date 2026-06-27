@@ -128,7 +128,7 @@ export function PatientIntakeForm() {
                 <label className="font-bold text-body">Email Address</label>
                 <input 
                   type="email" 
-                  placeholder="e.g. patient@aarogya.in"
+                  placeholder="e.g. patient@healthcare.in"
                   value={patientIntakeForm.demographics.emailAddress || ''}
                   onChange={(e) => updateDemographicIntake('emailAddress', e.target.value)}
                   className="bg-white border border-border rounded-lg p-2.5 text-heading focus:outline-none focus:ring-2 focus:ring-primary"
@@ -352,7 +352,7 @@ export function PatientIntakeForm() {
             <button 
               type="button"
               onClick={handleAddAdHocField}
-              className="w-full sm:w-auto bg-heading hover:bg-body text-white font-bold px-4 py-2 rounded-lg transition flex items-center justify-center space-x-1 shrink-0 h-[34px]"
+              className="w-full sm:w-auto bg-heading hover:bg-body text-white font-bold px-4 py-2 rounded-lg transition flex items-center justify-center space-x-1 shrink-0 h-8.5"
             >
               <Plus size={14} />
               <span>Add Field</span>

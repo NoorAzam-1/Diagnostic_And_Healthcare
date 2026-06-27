@@ -4,12 +4,18 @@ import { useApp } from "@/context/AppContext";
 export function StaffDirectory() {
   const {
     staffDirectory,
+    currentUser,
     staffInvitationForm,
     setStaffInvitationForm,
     sendStaffInvitation,
     changeStaffCredentials,
     changeStaffAvailability,
   } = useApp();
+
+  const isSuperAdmin = currentUser?.role?.includes("Super Admin");
+  const visibleStaff = isSuperAdmin
+    ? staffDirectory
+    : staffDirectory.filter((member) => !member.role.includes("Super Admin"));
   
   return (
     <div className="p-6 space-y-6">
@@ -128,7 +134,11 @@ export function StaffDirectory() {
           </h3>
 
           <div className="divide-y divide-border">
-            {staffDirectory.map((staff, idx) => (
+            {visibleStaff.map((staff, idx) => {
+              const isProtectedUser =
+                staff.id === "DIR-101" || staff.role.includes("Super Admin");
+
+              return (
               <div
                 key={idx}
                 className="py-3.5 flex items-center justify-between"
@@ -150,7 +160,7 @@ export function StaffDirectory() {
                 </div>
 
                 <div className="flex items-center space-x-2">
-                  {staff.id !== "DIR-101" && (
+                  {!isProtectedUser && (
                     <button
                       onClick={() => changeStaffCredentials(staff.id)}
                       className="px-2 py-1 rounded text-[10px] font-semibold border bg-white border-border hover:bg-surface text-body"
@@ -159,7 +169,7 @@ export function StaffDirectory() {
                     </button>
                   )}
 
-                  {staff.id !== "DIR-101" && (
+                  {!isProtectedUser && (
                     <button
                       onClick={() => changeStaffAvailability(staff.id)}
                       className={`px-2.5 py-1 rounded text-[10px] font-bold ${staff.status === "Active" ? "bg-green-50 text-green-700 border border-green-200" : "bg-rose-50 text-rose-700 border border-rose-200"}`}
@@ -169,7 +179,8 @@ export function StaffDirectory() {
                   )}
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
