@@ -67,7 +67,7 @@ export default function DashboardHeader({ onMenuToggle }) {
               <p className="text-[10px] uppercase tracking-wider text-muted">
                 License Code
               </p>
-              <p className="font-mono text-xs font-semibold text-heading">
+              <p className="font-mono text-xs font-semibold text-heading ml-2">
                 {licenseCode}
               </p>
             </div>
