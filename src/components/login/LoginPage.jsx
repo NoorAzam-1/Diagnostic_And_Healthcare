@@ -41,7 +41,7 @@ export const LoginPage = () => {
         </h2>
 
         <p className="mt-2 text-sm text-body">
-          Secure login for administrators and healthcare staff.
+          Secure login for superadmin, administrators and healthcare staff.
         </p>
       </div>
 
@@ -55,7 +55,30 @@ export const LoginPage = () => {
         </div>
       </div>
 
-      <div className="mt-6 grid grid-cols-2 gap-3">
+      <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <button
+          type="button"
+          onClick={() => handleSelect("superadmin")}
+          className={`rounded-2xl border p-4 text-left transition-all duration-300 cursor-pointer relative overflow-hidden ${
+            selectedRole === "superadmin"
+              ? "border-amber-500 bg-amber-50 ring-2 ring-amber-100"
+              : "border-gray-200 bg-surface hover:border-amber-200 hover:bg-amber-50"
+          }`}
+        >
+          <p className="text-xs text-muted relative z-10">Super Admin</p>
+
+          <span className="mt-1 block font-semibold text-amber-700 relative z-10">
+            Zoya Khan
+          </span>
+
+          {selectedRole === "superadmin" && (
+            <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-1 text-[10px] font-semibold text-amber-700 relative z-10 animate-scale-in">
+              <CheckCircle2 size={10} />
+              Selected
+            </span>
+          )}
+        </button>
+
         <button
           type="button"
           onClick={() => handleSelect("admin")}
