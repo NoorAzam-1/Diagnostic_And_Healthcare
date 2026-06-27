@@ -4,6 +4,7 @@ import {
   INITIAL_AUDIT_LOGS,
   INITIAL_STAFF,
   INITIAL_PATIENT_RECORDS,
+  ROLE_LOGIN_PRESETS,
 } from "@/constant/Data";
 
 const AppContext = createContext();
@@ -82,6 +83,8 @@ export function AppProvider({ children }) {
   });
 
   const [alertMessage, setAlertMessage] = useState(null);
+  const hasAdminAccess = currentUser?.role?.includes("Admin");
+
   const triggerAlert = (message, type = "success") => {
     setAlertMessage({ message, type });
     setTimeout(() => setAlertMessage(null), 4000);
@@ -189,7 +192,7 @@ export function AppProvider({ children }) {
 
   const createCustomClinicalField = (e) => {
     e.preventDefault();
-    if (currentUser?.role !== "Clinical Director (Admin)") {
+    if (!hasAdminAccess) {
       triggerAlert("Permission Denied.", "error");
       return;
     }
@@ -215,7 +218,7 @@ export function AppProvider({ children }) {
   };
 
   const deleteCustomField = (index) => {
-    if (currentUser?.role !== "Clinical Director (Admin)") {
+    if (!hasAdminAccess) {
       triggerAlert("Permission Denied.", "error");
       return;
     }
@@ -230,11 +233,11 @@ export function AppProvider({ children }) {
 
   const sendStaffInvitation = (e) => {
     e.preventDefault();
-    if (currentUser?.role !== "Clinical Director (Admin)") {
+    if (!hasAdminAccess) {
       triggerAlert("Insufficient clearance.", "error");
       return;
     }
-    if (staffInvitationForm.role === "Clinical Director (Admin)") {
+    if (staffInvitationForm.role.includes("Admin")) {
       triggerAlert(
         "Security Mandate: Clinical Director level access profiles must be verified by NHA.",
         "error",
@@ -272,13 +275,20 @@ export function AppProvider({ children }) {
   };
 
   const changeStaffAvailability = (id) => {
-    if (currentUser?.role !== "Clinical Director (Admin)") {
+    if (!hasAdminAccess) {
       triggerAlert(
         "Clearance Required: Only Clinical Directors can alter credentials.",
         "error",
       );
       return;
     }
+    const targetStaff = staffDirectory.find((staff) => staff.id === id);
+    const isCurrentSuperAdmin = currentUser?.role?.includes("Super Admin");
+    if (targetStaff?.role?.includes("Super Admin") && !isCurrentSuperAdmin) {
+      triggerAlert("Superadmin profiles are managed at platform root.", "error");
+      return;
+    }
+
     setStaffDirectory(
       staffDirectory.map((staff) => {
         if (staff.id === id) {
@@ -296,13 +306,20 @@ export function AppProvider({ children }) {
   };
 
   const changeStaffCredentials = (id) => {
-    if (currentUser?.role !== "Clinical Director (Admin)") {
+    if (!hasAdminAccess) {
       triggerAlert(
         "Clearance Required: Only Clinical Directors can elevate privileges.",
         "error",
       );
       return;
     }
+    const targetStaff = staffDirectory.find((staff) => staff.id === id);
+    const isCurrentSuperAdmin = currentUser?.role?.includes("Super Admin");
+    if (targetStaff?.role?.includes("Super Admin") && !isCurrentSuperAdmin) {
+      triggerAlert("Superadmin profiles are managed at platform root.", "error");
+      return;
+    }
+
     setStaffDirectory(
       staffDirectory.map((staff) => {
         if (staff.id === id) {
@@ -352,19 +369,9 @@ export function AppProvider({ children }) {
   };
 
   const applyPresetCredentials = (targetRole) => {
-    if (targetRole === "admin") {
-      setLoginEmail("noor.azam@apexclinical.in");
-      triggerAlert(
-        "Noor Azam's credentials loaded. App logon pe click kijiye.",
-        "info",
-      );
-    } else {
-      setLoginEmail("a.mishra@apexclinical.in");
-      triggerAlert(
-        "Amit Mishra's credentials loaded. App logon pe click kijiye.",
-        "info",
-      );
-    }
+    const preset = ROLE_LOGIN_PRESETS[targetRole] || ROLE_LOGIN_PRESETS.staff;
+    setLoginEmail(preset.email);
+    triggerAlert(preset.message, "info");
   };
 
   const activeInspectedPatient =
