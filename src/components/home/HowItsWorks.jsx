@@ -29,7 +29,7 @@ const workflow = [
   {
     icon: Users,
     title: "Invite Medical Team",
-    subtitle: "Admins • Doctors • Technicians",
+    subtitle: "Executive • Doctors • Technicians",
   },
   {
     icon: UserRound,
