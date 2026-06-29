@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -8,8 +9,11 @@ import {
   Phone,
   MapPin,
 } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
+  if (pathname.startsWith("/dashboard")) return null;
   return (
     <footer className="relative  overflow-hidden border-t border-border">
       <div className="absolute top-0 left-0 h-75 w-75 rounded-full bg-emerald-100 blur-[120px]" />
@@ -52,9 +56,9 @@ export default function Footer() {
                 </span>
               </div>
 
-                <div className="flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-4 py-2">
-                  <Database size={14} className="text-teal-600" />
-                  <span className="text-xs font-semibold text-teal-700">
+              <div className="flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-4 py-2">
+                <Database size={14} className="text-teal-600" />
+                <span className="text-xs font-semibold text-teal-700">
                   Data Sovereignty
                 </span>
               </div>
