@@ -47,6 +47,8 @@ export default function HeroSection() {
                     2000,
                     "For Clinics",
                     2000,
+                    "Multi Branch Org.",
+                    2000,
                   ]}
                   wrapper="span"
                   speed={45}
