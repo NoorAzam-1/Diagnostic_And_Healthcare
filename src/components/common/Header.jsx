@@ -1,140 +1,23 @@
-// "use client";
-
-// import { useState } from "react";
-// import Link from "next/link";
-// import { ChevronRight, CalendarDays, Menu, X } from "lucide-react";
-// import Image from "next/image";
-
-// // const navLinks = [
-// //   { name: "Features", href: "#features" },
-// //   { name: "Workflow", href: "#workflow" },
-// //   { name: "Security", href: "#security" },
-// //   { name: "Platform", href: "#platform" },
-// //   { name: "Pricing", href: "#pricing" },
-// // ];
-
-// export const Header = () => {
-//   const [mobileOpen, setMobileOpen] = useState(false);
-
-//   return (
-//     <header className="fixed inset-x-0 top-0 z-50 mx-auto w-full border-b border-border bg-white/90 backdrop-blur-xl">
-//       <div className="container-custom">
-//         <div className="flex h-20 items-center justify-between">
-//           <Link href="/" className="flex shrink-0 items-center gap-3">
-//             <Image
-//               src="/brandLogo.jpeg"
-//               alt="HARAI ONE"
-//               width={180}
-//               height={55}
-//               priority
-//               className="h-18 w-auto object-contain"
-//             />
-//             <div className="hidden sm:block leading-tight">
-//               <span className="block text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
-//                 HARAI
-//               </span>
-//               <span className="block text-lg font-bold text-heading">
-//                 Innovations Pvt. Ltd.
-//               </span>
-//             </div>
-//           </Link>
-
-//           <nav className="hidden items-center lg:flex lg:gap-4 xl:gap-8">
-//             {navLinks.map((item) => (
-//               <Link
-//                 key={item.name}
-//                 href={item.href}
-//                 className="text-sm font-medium text-body transition-colors hover:text-primary"
-//               >
-//                 {item.name}
-//               </Link>
-//             ))}
-//           </nav>
-
-//           <div className="hidden items-center gap-3 lg:flex">
-//             <Link
-//               href="/demo"
-//               className="flex items-center gap-2 rounded-2xl border border-border bg-white px-4 py-2.5 text-sm font-medium text-heading shadow-sm transition-all hover:border-border-hover hover:bg-surface-hover"
-//             >
-//               <CalendarDays size={16} />
-//               Book Demo
-//             </Link>
-
-//             <Link
-//               href="#login-anchor"
-//               className="flex items-center gap-2 rounded-2xl bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-red transition-all duration-300 hover:-translate-y-0.5"
-//             >
-//               Sign In
-//               <ChevronRight size={16} />
-//             </Link>
-//           </div>
-
-//           <button
-//             onClick={() => setMobileOpen((value) => !value)}
-//             className="flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-white lg:hidden"
-//           >
-//             {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-//           </button>
-//         </div>
-//       </div>
-
-//       {mobileOpen && (
-//         <div className="border-t border-border bg-white xl:hidden">
-//           <div className="container-custom py-6">
-//             <div className="flex flex-col gap-5">
-//               {navLinks.map((item) => (
-//                 <Link
-//                   key={item.name}
-//                   href={item.href}
-//                   onClick={() => setMobileOpen(false)}
-//                   className="text-sm font-medium text-body"
-//                 >
-//                   {item.name}
-//                 </Link>
-//               ))}
-
-//               <div className="mt-4 flex flex-col gap-3">
-//                 <Link
-//                   href="/demo"
-//                   className="flex items-center justify-center gap-2 rounded-2xl border border-border bg-white px-4 py-3 font-medium text-heading"
-//                 >
-//                   <CalendarDays size={16} />
-//                   Book Demo
-//                 </Link>
-
-//                 <Link
-//                   href="#login-anchor"
-//                   className="flex items-center justify-center gap-2 rounded-2xl bg-primary px-4 py-3 font-semibold text-white"
-//                 >
-//                   Sign In
-//                   <ChevronRight size={16} />
-//                 </Link>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       )}
-//     </header>
-//   );
-// };
-
-
-
 "use client";
 
 import { useState } from "react";
 import Link from "next/link";
-import { ChevronRight, ChevronDown, CalendarDays, Menu, X, LayoutGrid, Users, FlaskConical, Database, Building2, Phone, Calendar } from "lucide-react";
+import {
+  ChevronRight,
+  ChevronDown,
+  CalendarDays,
+  Menu,
+  X,
+  LayoutGrid,
+  Users,
+  FlaskConical,
+  Database,
+  Building2,
+  Phone,
+  Calendar,
+} from "lucide-react";
 import Image from "next/image";
-
-
-// const navLinks = [
-//   { name: "Features", href: "#features" },
-//   { name: "Workflow", href: "#workflow" },
-//   { name: "Security", href: "#security" },
-//   { name: "Platform", href: "#platform" },
-//   { name: "Pricing", href: "#pricing" },
-// ];
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   {
@@ -142,10 +25,30 @@ const navLinks = [
     type: "dropdown",
     icon: LayoutGrid,
     links: [
-      { name: "Product Overview", href: "#features", desc: "Complete feature suite", icon: LayoutGrid },
-      { name: "Role Based Access", href: "#roles", desc: "Admin, Doctor, Lab Tech", icon: Users },
-      { name: "Lab Configuration", href: "#lab-configuration", desc: "Dynamic test panels", icon: FlaskConical },
-      { name: "Storage Architecture", href: "#storage", desc: "Tenant isolation & DB", icon: Database },
+      {
+        name: "Product Overview",
+        href: "#features",
+        desc: "Complete feature suite",
+        icon: LayoutGrid,
+      },
+      {
+        name: "Role Based Access",
+        href: "#roles",
+        desc: "Admin, Doctor, Lab Tech",
+        icon: Users,
+      },
+      {
+        name: "Lab Configuration",
+        href: "#lab-configuration",
+        desc: "Dynamic test panels",
+        icon: FlaskConical,
+      },
+      {
+        name: "Storage Architecture",
+        href: "#storage",
+        desc: "Tenant isolation & DB",
+        icon: Database,
+      },
     ],
   },
   { name: "Platform", href: "#platform", type: "link" },
@@ -156,7 +59,12 @@ const navLinks = [
     type: "dropdown",
     icon: Building2,
     links: [
-      { name: "About Us", href: "/about", desc: "Our mission & story", icon: Building2 },
+      {
+        name: "About Us",
+        href: "/about",
+        desc: "Our mission & story",
+        icon: Building2,
+      },
       { name: "Contact", href: "/contact", desc: "Get in touch", icon: Phone },
       // { name: "Book a Demo", href: "/book-demo", desc: "See it in action", icon: Calendar },
     ],
@@ -167,6 +75,9 @@ export const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [mobileDropdown, setMobileDropdown] = useState(null);
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/dashboard")) return null;
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 mx-auto w-full border-b border-border bg-surface/80 backdrop-blur-xl">
@@ -269,7 +180,10 @@ export const Header = () => {
               className="group relative flex items-center gap-2 rounded-2xl bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-red transition-all duration-300 hover:-translate-y-0.5 overflow-hidden cursor-pointer"
             >
               <span className="relative z-10">Sign In</span>
-              <ChevronRight size={16} className="relative z-10 transition-transform group-hover:translate-x-0.5" />
+              <ChevronRight
+                size={16}
+                className="relative z-10 transition-transform group-hover:translate-x-0.5"
+              />
               <span className="btn-shimmer-line" />
             </Link>
           </div>
@@ -293,14 +207,20 @@ export const Header = () => {
                   return (
                     <div key={item.name} className="flex flex-col">
                       <button
-                        onClick={() => setMobileDropdown(isMobileOpen ? null : item.name)}
+                        onClick={() =>
+                          setMobileDropdown(isMobileOpen ? null : item.name)
+                        }
                         className="flex w-full items-center justify-between rounded-xl px-3 py-3 text-sm font-medium text-body transition-colors hover:bg-emerald-50 hover:text-emerald-700 cursor-pointer"
                       >
                         {item.name}
-                        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isMobileOpen ? "rotate-180" : ""}`} />
+                        <ChevronDown
+                          className={`h-4 w-4 transition-transform duration-200 ${isMobileOpen ? "rotate-180" : ""}`}
+                        />
                       </button>
-                      
-                      <div className={`overflow-hidden transition-all duration-300 ease-out ${isMobileOpen ? "max-h-96 opacity-100 pb-2" : "max-h-0 opacity-0"}`}>
+
+                      <div
+                        className={`overflow-hidden transition-all duration-300 ease-out ${isMobileOpen ? "max-h-96 opacity-100 pb-2" : "max-h-0 opacity-0"}`}
+                      >
                         <div className="ml-4 flex flex-col gap-1 border-l-2 border-emerald-100 pl-4">
                           {item.links.map((link) => (
                             <Link
