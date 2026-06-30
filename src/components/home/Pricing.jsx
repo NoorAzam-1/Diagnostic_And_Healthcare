@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, X, Zap } from "lucide-react";
+import CountUp from "react-countup";
 
 const plans = [
   {
@@ -70,7 +71,7 @@ export default function Pricing() {
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.7 }}
           className="mx-auto mb-16 w-full text-center"
         >
@@ -120,7 +121,7 @@ export default function Pricing() {
               key={plan.name}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
               className={`relative ${
                 plan.popular ? "md:-my-6 md:py-6 z-10" : ""
@@ -168,7 +169,14 @@ function PricingCard({ plan, isAnnual }) {
           <>
             <span className="text-sm font-semibold text-body">₹</span>
             <span className="text-5xl font-black tracking-tight text-heading">
-              {price.toLocaleString("en-IN")}
+              <CountUp
+                key={isAnnual ? "annual" : "monthly"}
+                start={0}
+                end={price}
+                duration={0.8}
+                separator=","
+                decimals={0}
+              />
             </span>
             <span className="ml-2 text-sm text-muted">{suffix}</span>
           </>
