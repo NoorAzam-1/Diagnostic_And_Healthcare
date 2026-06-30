@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import {
   Users,
   FlaskConical,
@@ -10,6 +10,8 @@ import {
   SlidersHorizontal,
   ArrowRight,
 } from "lucide-react";
+import CountUp from "react-countup";
+import { useRef } from "react";
 
 const features = [
   {
@@ -64,7 +66,43 @@ const features = [
   },
 ];
 
+const bottomStats = [
+  { end: 500, suffix: "K+", label: "Patient Records Managed" },
+  { end: 50, suffix: "+", label: "Healthcare Centers" },
+  { end: 99.9, suffix: "%", decimals: 1, label: "Platform Availability" },
+];
+
+function BottomStatCard({ item, index }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.5 });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="rounded-3xl border border-border bg-surface p-5 text-center"
+    >
+      <h4 className="text-3xl font-black text-heading">
+        <CountUp
+          start={isInView ? 0 : null}
+          end={item.end}
+          duration={1.5}
+          decimals={item.decimals || 0}
+        />
+        {item.suffix}
+      </h4>
+      <p className="mt-1 text-body">{item.label}</p>
+    </motion.div>
+  );
+}
+
 export default function ProductOverview() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.5 });
+  
   return (
     <section id="features" className="relative container-custom scroll-m-18 md:scroll-m-12 overflow-hidden py-6 md:py-8 lg:py-12">
       <div className="absolute top-20 left-20 h-[400px] w-[400px] rounded-full bg-red-100 blur-[140px]" />
@@ -113,7 +151,7 @@ export default function ProductOverview() {
                 whileHover={{
                   y: -6,
                 }}
-                className={`${feature.span || ""} group rounded-[32px] border border-border bg-white p-6 shadow-sm transition-all duration-300 hover:border-red-200 hover:shadow-xl`}
+                className={`${feature.span || ""} group rounded-4xl border border-border bg-white p-6 shadow-sm transition-all duration-300 hover:border-red-200 hover:shadow-xl`}
               >
                 <div
                   className={`mb-5 flex h-14 w-14 items-center justify-center rounded-2xl ${feature.bg}`}
@@ -142,20 +180,9 @@ export default function ProductOverview() {
         </div>
 
         <div className="mt-12 grid gap-4 md:grid-cols-3">
-          <div className="rounded-3xl border border-border bg-surface p-5 text-center">
-            <h4 className="text-3xl font-black text-heading">500K+</h4>
-            <p className="mt-1 text-body">Patient Records Managed</p>
-          </div>
-
-          <div className="rounded-3xl border border-border bg-surface p-5 text-center">
-            <h4 className="text-3xl font-black text-heading">50+</h4>
-            <p className="mt-1 text-body">Healthcare Centers</p>
-          </div>
-
-          <div className="rounded-3xl border border-border bg-surface p-5 text-center">
-            <h4 className="text-3xl font-black text-heading">99.9%</h4>
-            <p className="mt-1 text-body">Platform Availability</p>
-          </div>
+          {bottomStats.map((item, index) => (
+            <BottomStatCard key={item.label} item={item} index={index} />
+          ))}
         </div>
       </div>
     </section>
