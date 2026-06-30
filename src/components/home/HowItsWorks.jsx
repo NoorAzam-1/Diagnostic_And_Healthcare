@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import {
   Building2,
   Settings2,
@@ -9,11 +9,12 @@ import {
   FlaskConical,
   FileBarChart,
   ShieldCheck,
-  Database,
   ArrowRight,
   Lock,
   Network,
 } from "lucide-react";
+import CountUp from "react-countup";
+import { useRef } from "react";
 
 const workflow = [
   {
@@ -66,6 +67,41 @@ const highlights = [
     title: "Multi-Tenant",
   },
 ];
+
+const bottomStats = [
+  { prefix: "~", end: 15, suffix: " Min", label: "Average Setup Time" },
+  { end: 100, suffix: "%", label: "Tenant Isolation" },
+  { end: 99.9, suffix: "%", decimals: 1, label: "Platform Availability" },
+  { end: 24, suffix: "/7", label: "Monitoring" },
+];
+
+function StatCard({ item, index }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.5 });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="rounded-4xl border border-border bg-surface p-6 text-center hover:shadow-xl transition-all duration-300"
+    >
+      <h3 className="text-3xl font-black text-heading">
+        {item.prefix}
+        <CountUp
+          start={isInView ? 0 : null}
+          end={item.end}
+          duration={1.5}
+          decimals={item.decimals || 0}
+        />
+        {item.suffix}
+      </h3>
+      <p className="mt-2 text-body">{item.label}</p>
+    </motion.div>
+  );
+}
 
 export default function HowItWorks() {
   return (
@@ -205,25 +241,9 @@ export default function HowItWorks() {
         </div>
 
         <div className="mt-16 grid gap-5 md:grid-cols-4">
-          <div className="rounded-4xl border border-border bg-surface p-6 text-center hover:shadow-xl">
-            <h3 className="text-3xl font-black text-heading">15 Min</h3>
-            <p className="mt-2 text-body">Average Setup Time</p>
-          </div>
-
-          <div className="rounded-4xl border border-border bg-surface p-6 text-center hover:shadow-xl">
-            <h3 className="text-3xl font-black text-heading">100%</h3>
-            <p className="mt-2 text-body">Tenant Isolation</p>
-          </div>
-
-          <div className="rounded-4xl border border-border bg-surface p-6 text-center hover:shadow-xl">
-            <h3 className="text-3xl font-black text-heading">99.9%</h3>
-            <p className="mt-2 text-body">Platform Availability</p>
-          </div>
-
-          <div className="rounded-4xl border border-border bg-surface p-6 text-center hover:shadow-xl">
-            <h3 className="text-3xl font-black text-heading">24/7</h3>
-            <p className="mt-2 text-body">Monitoring</p>
-          </div>
+          {bottomStats.map((item, index) => (
+            <StatCard key={item.label} item={item} index={index} />
+          ))}
         </div>
       </div>
     </section>
