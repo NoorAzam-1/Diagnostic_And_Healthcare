@@ -1,145 +1,147 @@
 "use client";
+import React from "react";
+import Image from "next/image";
+import { HeartPulse } from "lucide-react";
+import { motion } from "framer-motion";
 
-import { TypeAnimation } from "react-type-animation";
-import {
-  HeartPulse,
-  Building2,
-  ShieldCheck,
-  Sparkles,
-  ArrowRight,
-} from "lucide-react";
+const textVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.15,
+      duration: 0.7,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  }),
+};
 
-export default function AboutHero() {
+export default function AboutPage() {
   return (
-    <section className="relative overflow-hidden pt-28 pb-24">
-      {/* Background */}
+    <section className="relative container-custom overflow-hidden pt-16 pb-6 sm:pt-20 md:pt-24 lg:pt-28">
+      <div className="absolute top-20 -left-40 h-[600px] w-[600px] animate-pulse-slow rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 -right-40 h-[500px] w-[500px] rounded-full bg-info/10 blur-3xl pointer-events-none" />
 
-      <div className="absolute left-0 top-0 h-[420px] w-[420px] rounded-full bg-emerald-100 blur-[150px] animate-pulse-slow" />
+      <div className="relative z-10 grid w-full gap-10 sm:gap-14 lg:grid-cols-[6fr_4fr] lg:gap-12 xl:gap-16 items-center">
+        
+        {/* Text Side */}
+        <motion.div
+          className="order-2 lg:order-1"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+        >
+          <motion.div
+            custom={0}
+            variants={textVariants}
+            className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-xs font-semibold tracking-wider text-emerald-700 uppercase"
+          >
+            <span className="h-2 w-2 rounded-full bg-emerald-600 animate-pulse" />
+            About HARAI ONE
+          </motion.div>
 
-      <div className="absolute right-0 top-40 h-[350px] w-[350px] rounded-full bg-teal-100 blur-[130px] animate-pulse-slow" />
+          <motion.h1
+            custom={1}
+            variants={textVariants}
+            className="font-heading mb-6 sm:mb-8 text-[2rem] sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] font-bold tracking-tight leading-[1.1] text-heading"
+          >
+            Healthcare isn&apos;t built around software.
+            <br />
+            <span className="text-primary">
+              Software should be built around healthcare.
+            </span>
+          </motion.h1>
 
-      <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-          {/* LEFT */}
+          <motion.p
+            custom={2}
+            variants={textVariants}
+            className="font-light text-base sm:text-lg md:text-xl lg:text-[1.35rem] xl:text-2xl leading-relaxed text-body max-w-xl mb-8 sm:mb-10"
+          >
+            Harai One was born from a simple observation — the people who save
+            lives spend more time fighting technology than benefiting from it.
+            We&apos;re here to change that.
+          </motion.p>
 
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-emerald-700 animate-fade-in-down">
-              <Sparkles className="h-4 w-4" />
-              About Harai One
-            </div>
-
-            <h1 className="mt-6 text-5xl md:text-6xl xl:text-7xl font-black leading-tight text-heading">
-              Building the Future of
-              <span className="block mt-3 bg-linear-to-r from-emerald-700 via-teal-600 to-cyan-600 bg-clip-text text-transparent">
-                <TypeAnimation
-                  sequence={[
-                    "Healthcare Operations",
-                    2500,
-                    "Hospitals",
-                    2000,
-                    "Clinics",
-                    2000,
-                    "Diagnostic Labs",
-                    2000,
-                  ]}
-                  wrapper="span"
-                  speed={45}
-                  repeat={Infinity}
-                />
-              </span>
-            </h1>
-
-            <p className="mt-8 max-w-xl text-lg leading-8 text-body">
-              Harai One was created with one belief— healthcare software should
-              adapt to healthcare, not the other way around. We build secure,
-              configurable and intelligent healthcare platforms that empower
-              hospitals, clinics and diagnostic laboratories to deliver better
-              patient care.
-            </p>
-
-            <div className="mt-10 flex flex-wrap gap-5">
-              <button className="group flex items-center gap-2 rounded-2xl bg-primary px-7 py-4 font-semibold text-white shadow-red transition-all duration-300 hover:-translate-y-1">
-                Book Demo
-                <ArrowRight
-                  size={18}
-                  className="transition-transform group-hover:translate-x-1"
-                />
-              </button>
-
-              <button className="rounded-2xl border border-border bg-white px-7 py-4 font-semibold text-heading shadow-sm transition hover:border-emerald-300 hover:shadow-md">
-                Our Story
-              </button>
-            </div>
-          </div>
-
-          {/* RIGHT */}
-
-          <div className="relative">
-            <div className="absolute inset-0 rounded-[40px] bg-linear-to-br from-emerald-100 via-white to-teal-100 blur-3xl animate-glow-pulse" />
-
-            <div className="relative rounded-[36px] border border-border bg-white p-8 shadow-lg">
-              <img
-                src="/images/about/about-hero.png"
-                alt="Healthcare"
-                className="w-full"
+          <motion.div
+            custom={3}
+            variants={textVariants}
+            className="flex items-center gap-3 sm:gap-4 text-sm text-muted"
+          >
+            <div className="flex -space-x-2">
+              <Image
+                src="https://picsum.photos/seed/harai-team1/64/64.jpg"
+                width={32}
+                height={32}
+                className="h-7 w-7 sm:h-8 sm:w-8 rounded-full border-2 border-white object-cover"
+                alt="Team member"
               />
-            </div>
-
-            {/* Floating Card */}
-
-            <div className="absolute -left-6 top-10 rounded-2xl border border-border bg-white p-4 shadow-lg animate-float-1">
-              <div className="flex items-center gap-3">
-                <div className="rounded-xl bg-emerald-50 p-3">
-                  <HeartPulse className="text-emerald-600" />
-                </div>
-
-                <div>
-                  <p className="font-semibold text-heading">
-                    Built for Healthcare
-                  </p>
-
-                  <p className="text-sm text-muted">
-                    Hospitals • Clinics • Labs
-                  </p>
-                </div>
+              <Image
+                src="https://picsum.photos/seed/harai-team2/64/64.jpg"
+                width={32}
+                height={32}
+                className="h-7 w-7 sm:h-8 sm:w-8 rounded-full border-2 border-white object-cover"
+                alt="Team member"
+              />
+              <Image
+                src="https://picsum.photos/seed/harai-team3/64/64.jpg"
+                width={32}
+                height={32}
+                className="h-7 w-7 sm:h-8 sm:w-8 rounded-full border-2 border-white object-cover"
+                alt="Team member"
+              />
+              <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full border-2 border-white bg-teal-100 text-[9px] sm:text-[10px] font-bold text-teal-700">
+                +20
               </div>
             </div>
+            <span className="text-xs sm:text-sm">
+              Building for healthcare, with healthcare
+            </span>
+          </motion.div>
+        </motion.div>
 
-            <div className="absolute -right-6 bottom-16 rounded-2xl border border-border bg-white p-4 shadow-lg animate-float-2">
-              <div className="flex items-center gap-3">
-                <div className="rounded-xl bg-teal-50 p-3">
-                  <Building2 className="text-teal-600" />
-                </div>
+        {/* Image Side */}
+        <motion.div
+          className="order-1 lg:order-2 flex justify-center lg:justify-end"
+          initial={{ opacity: 0, x: 50, scale: 0.95 }}
+          whileInView={{ opacity: 1, x: 0, scale: 1 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <div className="relative aspect-square w-70 sm:w-[320px] md:w-84 lg:w-full">
+            <div className="absolute inset-0 rounded-full bg-linear-to-br from-teal-50 via-color-teal-100/40 to-transparent" />
 
-                <div>
-                  <p className="font-semibold text-heading">
-                    Configurable Platform
-                  </p>
+            <Image
+              src="https://picsum.photos/seed/healthcare-illustration/800/800.jpg"
+              alt="Healthcare Illustration"
+              fill
+              sizes="(max-width: 1023px) 320px, 400px"
+              priority
+              className="relative z-10 rounded-3xl object-cover shadow-lg"
+            />
 
-                  <p className="text-sm text-muted">
-                    One Platform. Every Workflow.
-                  </p>
-                </div>
+            <motion.div
+              className="absolute -bottom-3 left-2 sm:-bottom-4 sm:-left-4 z-20 flex items-center gap-2.5 sm:gap-3 rounded-xl sm:rounded-2xl border border-border bg-surface p-3 sm:p-4 shadow-md"
+              initial={{ opacity: 0, y: 20, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: false, amount: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -4, boxShadow: "0 12px 24px rgba(15, 118, 110, 0.15)" }}
+            >
+              <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-teal-50">
+                <HeartPulse className="text-lg sm:text-xl text-color-primary" />
               </div>
-            </div>
-
-            <div className="absolute bottom-0 left-20 rounded-2xl border border-border bg-white p-4 shadow-lg animate-float-1">
-              <div className="flex items-center gap-3">
-                <div className="rounded-xl bg-cyan-50 p-3">
-                  <ShieldCheck className="text-cyan-600" />
-                </div>
-
-                <div>
-                  <p className="font-semibold text-heading">Secure by Design</p>
-
-                  <p className="text-sm text-muted">
-                    Enterprise-grade Protection
-                  </p>
-                </div>
+              <div>
+                <p className="text-[10px] sm:text-xs font-medium text-muted">
+                  Our Mission
+                </p>
+                <p className="text-xs sm:text-sm font-semibold text-heading">
+                  Care over complexity
+                </p>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
