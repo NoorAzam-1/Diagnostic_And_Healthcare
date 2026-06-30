@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useRef } from "react";
 import {
   Building2,
   Users,
@@ -11,7 +12,7 @@ import {
   Network,
 } from "lucide-react";
 import CountUp from "react-countup";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 const stats = [
   {
@@ -90,6 +91,51 @@ const trustFeatures = [
   },
 ];
 
+function StatCard({ item, index }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.5 });
+  const Icon = item.icon;
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false }}
+      transition={{
+        duration: 0.5,
+        delay: index * 0.1,
+      }}
+      whileHover={{
+        y: -6,
+      }}
+      className="group rounded-[28px] border border-border bg-white p-6 shadow-sm transition-all duration-300 hover:border-red-200 hover:shadow-xl"
+    >
+      <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-red-50">
+        <Icon size={22} className="text-red-600" />
+      </div>
+
+      <h3 className="text-3xl font-black text-heading">
+        <CountUp
+          start={isInView ? 0 : null}
+          end={item.value}
+          duration={1.5}
+          decimals={item.decimals || 0}
+        />
+        {item.suffix}
+      </h3>
+
+      <p className="mt-2 font-semibold text-heading">
+        {item.label}
+      </p>
+
+      <p className="mt-1 text-sm text-body">
+        {item.description}
+      </p>
+    </motion.div>
+  );
+}
+
 export default function TrustedBySection() {
   return (
     <section className="relative container-custom overflow-hidden py-6 md:py-8 lg:py-12">
@@ -139,47 +185,9 @@ export default function TrustedBySection() {
         </div>
 
         <div className="mt-14 grid grid-cols-2 gap-5 xl:grid-cols-4">
-          {stats.map((item, index) => {
-            const Icon = item.icon;
-
-            return (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.1,
-                }}
-                whileHover={{
-                  y: -6,
-                }}
-                className="group rounded-[28px] border border-border bg-white p-6 shadow-sm transition-all duration-300 hover:border-red-200 hover:shadow-xl"
-              >
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-red-50">
-                  <Icon size={22} className="text-red-600" />
-                </div>
-
-                <h3 className="text-3xl font-black text-heading">
-                  <CountUp
-                    end={item.value}
-                    duration={3}
-                    decimals={item.decimals || 0}
-                  />
-                  {item.suffix}
-                </h3>
-
-                <p className="mt-2 font-semibold text-heading">
-                  {item.label}
-                </p>
-
-                <p className="mt-1 text-sm text-body">
-                  {item.description}
-                </p>
-              </motion.div>
-            );
-          })}
+          {stats.map((item, index) => (
+            <StatCard key={item.label} item={item} index={index} />
+          ))}
         </div>
 
         <div className="mt-12 grid grid-cols-2 md:flex flex-wrap justify-center gap-3">
