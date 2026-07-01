@@ -131,7 +131,7 @@ export default function Platfor() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.5 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-xs font-semibold tracking-wider text-emerald-700 uppercase mb-5 sm:mb-6"
+          className="inline-flex items-center justify-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-xs font-semibold tracking-wider text-emerald-700 uppercase mb-5 sm:mb-6"
         >
           <span className="h-2 w-2 rounded-full bg-emerald-600 animate-pulse" />
           Configurability
